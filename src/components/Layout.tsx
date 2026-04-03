@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
     { name: "Tours", path: "/tours" },
     { name: "Destinations", path: "/#destinations" },
     { name: "About Us", path: "/#about" },
-    { name: "Contact", path: "/#contact" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -143,7 +143,7 @@ export default function Layout({ children }: LayoutProps) {
                 <li><Link to="/tours" className="hover:text-emerald-400 transition-colors">Our Tours</Link></li>
                 <li><a href="#destinations" className="hover:text-emerald-400 transition-colors">Destinations</a></li>
                 <li><a href="#about" className="hover:text-emerald-400 transition-colors">About Us</a></li>
-                <li><a href="#contact" className="hover:text-emerald-400 transition-colors">Contact</a></li>
+                <li><Link to="/contact" className="hover:text-emerald-400 transition-colors">Contact</Link></li>
               </ul>
             </div>
 

@@ -224,12 +224,12 @@ export default function Home() {
               >
                 Browse All Packages
               </Link>
-              <a
-                href="mailto:info@goceylontravel.com"
+              <Link
+                to="/contact"
                 className="bg-transparent border-2 border-emerald-400/30 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-emerald-400/10 transition-all active:scale-95"
               >
                 Contact Support
-              </a>
+              </Link>
             </div>
             <div className="flex items-center justify-center gap-8 pt-8 text-emerald-100/40">
               <div className="flex items-center gap-2">
