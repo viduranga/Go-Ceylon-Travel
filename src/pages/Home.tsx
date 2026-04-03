@@ -147,7 +147,7 @@ export default function Home() {
             {[
               {
                 name: "Sigiriya",
-                image: "https://images.unsplash.com/photo-1588598198321-9735fd52455b?auto=format&fit=crop&q=80&w=800",
+                image: "https://drive.google.com/uc?export=view&id=14EEULN6NnRJfjLY8v7n-y8YnItKR0aos",
                 desc: "The ancient rock fortress and UNESCO World Heritage site."
               },
               {

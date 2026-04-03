@@ -22,7 +22,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Quick Escape",
     duration: "3 Days / 2 Nights",
     route: "Airport/Colombo - Kandy - Sigiriya - Colombo",
-    image: "https://images.unsplash.com/photo-1588598198321-9735fd52455b?auto=format&fit=crop&q=80&w=800",
+    image: "https://drive.google.com/uc?export=view&id=14EEULN6NnRJfjLY8v7n-y8YnItKR0aos",
     itinerary: [
       {
         day: 1,

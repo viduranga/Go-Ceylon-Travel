@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home4/hnrdforg/public_html/website_762482e9/
-    - /bin/cp -R * $DEPLOYPATH
