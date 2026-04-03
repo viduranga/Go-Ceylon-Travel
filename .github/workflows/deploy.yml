@@ -1,0 +1,26 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main  # Trigger this every time you push to 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Node and Build
+        run: |
+          npm install
+          npm run build
+
+      - name: Sync to Bluehost (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: nvk.mtr.mybluehost.me
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: public_html/website_762482e9/
