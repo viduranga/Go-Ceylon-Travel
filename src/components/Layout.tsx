@@ -25,13 +25,13 @@ export default function Layout({ children }: LayoutProps) {
       {/* Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="bg-emerald-900 p-2 rounded-lg group-hover:bg-emerald-800 transition-colors">
-              <Compass className="w-6 h-6 text-emerald-50" />
-            </div>
-            <span className="text-xl font-bold text-emerald-900 tracking-tight">
-              Go Ceylon<span className="text-emerald-600"> Travel</span>
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img 
+              src="https://drive.google.com/uc?export=view&id=1rttRhY71UZTt51Y3OSPw6JtTuRn9WmcC" 
+              alt="Go Ceylon Travel Logo" 
+              className="h-14 w-auto object-contain"
+              referrerPolicy="no-referrer"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -111,13 +111,13 @@ export default function Layout({ children }: LayoutProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             {/* Brand */}
             <div className="space-y-6">
-              <Link to="/" className="flex items-center gap-2">
-                <div className="bg-emerald-50 p-2 rounded-lg">
-                  <Compass className="w-6 h-6 text-emerald-900" />
-                </div>
-                <span className="text-xl font-bold tracking-tight">
-                  Go Ceylon<span className="text-emerald-400"> Travel</span>
-                </span>
+              <Link to="/" className="flex items-center">
+                <img 
+                  src="https://drive.google.com/uc?export=view&id=1rttRhY71UZTt51Y3OSPw6JtTuRn9WmcC" 
+                  alt="Go Ceylon Travel Logo" 
+                  className="h-14 w-auto object-contain brightness-0 invert"
+                  referrerPolicy="no-referrer"
+                />
               </Link>
               <p className="text-emerald-200/70 text-sm leading-relaxed">
                 Discover the magic of Sri Lanka with Go Ceylon Travel. We provide curated, high-quality tour packages that showcase the best of our island paradise.
