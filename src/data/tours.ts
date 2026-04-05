@@ -34,6 +34,26 @@ export const toursData: TourPlan[] = [
           "Cultural Dance Show in Kandy"
         ],
         overnight: "Kandy"
+      },
+      {
+        day: 2,
+        title: "Kandy - Sigiriya",
+        activities: [
+          "Visit Matale Hindu Temple",
+          "Visit Herbal & Spice Garden",
+          "Village tour + Traditional Lunch",
+          "Climb Sigiriya Or Pidurangala Rock (see the Sunset)"
+        ],
+        overnight: "Sigiriya"
+      },
+      {
+        day: 3,
+        title: "Sigiriya - Colombo",
+        activities: [
+          "Climb Sigiriya or Pidurangala Rock (See the Sunrise)",
+          "Explore Dambulla Golden Cave Temple",
+          "Drop to Colombo / Airport"
+        ]
       }
     ]
   },
@@ -107,7 +127,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Most Popular",
     duration: "7 Days / 6 Nights",
     route: "Airport - Colombo - Sigiriya - Kandy - Nuwaraeliya - Ella - Yala - Galle - Airport/ Colombo",
-    image: "https://lh3.googleusercontent.com/d/18pjjbA6y3xErTb_rd0Nj4x7UbzcGoJj1",
+    image: "https://lh3.googleusercontent.com/d/1aydnnhwrM8clqQD8sAigZbZUWcejrrYk",
     itinerary: [
       {
         day: 1,
@@ -125,7 +145,7 @@ export const toursData: TourPlan[] = [
         activities: [
           "Drive to Sigiriya",
           "Visit Dambulla Golden Cave Temple (UNESCO)",
-          "Village tour With Sri Lankan traditional Lunch",
+          "Village tour With Sri lankan traditional Lunch",
           "Climb Sigiriya or Pidurangala Rock (see the sunset)"
         ],
         overnight: "Sigiriya"
@@ -145,10 +165,10 @@ export const toursData: TourPlan[] = [
         day: 4,
         title: "Kandy - Nuwaraeliya",
         activities: [
-          "Visit Ramboda Waterfall",
-          "Visit Tea plantations",
-          "Tea factory tour & tea tasting",
-          "Visit Post Office In Nuwaraeliya",
+          "Visit Ramboda Waterfall.",
+          "Visit Tea plantations.",
+          "Tea factory tour & tea tasting.",
+          "Visit Post Office In Nuwaraeliya.",
           "Visit Lake Gregory"
         ],
         overnight: "Nuwaraeliya"
@@ -157,9 +177,9 @@ export const toursData: TourPlan[] = [
         day: 5,
         title: "Nuwaraeliya - Ella",
         activities: [
-          "Scenic train ride from Nanuoya to Ella (World famous train ride)",
-          "Nine Arches Bridge",
-          "Little Adam's Peak"
+          "Scenic train ride from Nanuoya to Ella.(World famous train ride)",
+          "Nine Arches Bridge.",
+          "Little Adam's Peak."
         ],
         overnight: "Ella"
       },
@@ -167,9 +187,9 @@ export const toursData: TourPlan[] = [
         day: 6,
         title: "Ella - Yala - Galle",
         activities: [
-          "Morning Safari in Yala National Park (Leopards, Elephants etc.)",
-          "Sea turtle farm & Hatchery Visit",
-          "Stilt Fishermen In Koggala (can be seen only in downsouth)"
+          "Morning Safari in Yala National Park (Leopards,Elephants etc.)",
+          "Sea turtle farm & Hatchery Visit.",
+          "Stilt Fishermen In Koggala.( can be seen only in downsouth)"
         ],
         overnight: "Galle"
       },
@@ -179,7 +199,7 @@ export const toursData: TourPlan[] = [
         activities: [
           "Koggala Lake Boat Safari",
           "Galle fort Visit",
-          "Drop off to Colombo / Airport with unforgettable memories"
+          "Drop off to Colombo/ Airport with unforgettable memories."
         ]
       }
     ]
@@ -190,7 +210,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Grand Tour",
     duration: "10 Days / 9 Nights",
     route: "Airport - Colombo - Sigiriya - Polonnaruwa - Kandy - Nuwaraeliya - Ella - Yala - Mirissa - Galle - Colombo/ Airport",
-    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=800",
+    image: "https://lh3.googleusercontent.com/d/1J9SprxGCioFc2Uq7XGSHcmmJHvLcpQx9",
     itinerary: [
       {
         day: 1,

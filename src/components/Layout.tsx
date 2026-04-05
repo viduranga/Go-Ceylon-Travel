@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Compass, MapPin, Phone, Mail, Facebook, Instagram, Twitter, Menu, X } from "lucide-react";
+import { Compass, MapPin, Phone, Mail, Facebook, Instagram, Twitter, Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/src/lib/utils";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Tours", path: "/tours" },
-    { name: "Destinations", path: "/#destinations" },
+    { name: "Destinations", path: "/destinations" },
     { name: "About Us", path: "/#about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -141,7 +141,7 @@ export default function Layout({ children }: LayoutProps) {
               <ul className="space-y-4 text-sm text-emerald-200/70">
                 <li><Link to="/" className="hover:text-emerald-400 transition-colors">Home</Link></li>
                 <li><Link to="/tours" className="hover:text-emerald-400 transition-colors">Our Tours</Link></li>
-                <li><a href="#destinations" className="hover:text-emerald-400 transition-colors">Destinations</a></li>
+                <li><Link to="/destinations" className="hover:text-emerald-400 transition-colors">Destinations</Link></li>
                 <li><a href="#about" className="hover:text-emerald-400 transition-colors">About Us</a></li>
                 <li><Link to="/contact" className="hover:text-emerald-400 transition-colors">Contact</Link></li>
               </ul>
@@ -161,7 +161,7 @@ export default function Layout({ children }: LayoutProps) {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-emerald-400 shrink-0" />
-                  <span>info@goceylontravel.com</span>
+                  <span>goceylontravel111@gmail.com</span>
                 </li>
               </ul>
             </div>
@@ -192,6 +192,24 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
       </footer>
+
+      {/* WhatsApp Floating Button */}
+      <motion.a
+        href="https://wa.me/message/TN4V2SLCNKHMI1"
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center group transition-all hover:shadow-[#25D366]/40"
+        title="Chat with us on WhatsApp"
+      >
+        <MessageCircle className="w-8 h-8 fill-white" />
+        <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-500 font-bold whitespace-nowrap">
+          Chat with us
+        </span>
+      </motion.a>
     </div>
   );
 }

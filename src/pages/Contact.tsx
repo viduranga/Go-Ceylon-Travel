@@ -60,9 +60,9 @@ export default function Contact() {
               {
                 icon: <Mail className="w-6 h-6" />,
                 title: "Email Us",
-                value: "info@goceylontravel.com",
+                value: "goceylontravel111@gmail.com",
                 sub: "We'll respond within 24 hours",
-                link: "mailto:info@goceylontravel.com"
+                link: "mailto:goceylontravel111@gmail.com"
               },
               {
                 icon: <MapPin className="w-6 h-6" />,

@@ -115,7 +115,7 @@ export default function Tours() {
       <section className="bg-emerald-950 py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=2000"
+            src="https://lh3.googleusercontent.com/d/1J9SprxGCioFc2Uq7XGSHcmmJHvLcpQx9"
             alt="Background"
             className="w-full h-full object-cover grayscale"
             referrerPolicy="no-referrer"
@@ -177,7 +177,7 @@ export default function Tours() {
           <div className="relative">
             <div className="w-64 h-64 bg-emerald-200 rounded-full absolute -top-10 -right-10 blur-3xl opacity-30 animate-pulse" />
             <img
-              src="https://images.unsplash.com/photo-1552423814-f41e0f7f4232?auto=format&fit=crop&q=80&w=600"
+              src="https://lh3.googleusercontent.com/d/16FppfEdw_Hwwkw6SFqX5p17uyrDrKMbS"
               alt="Custom Travel"
               className="w-80 h-80 object-cover rounded-[2rem] shadow-2xl relative z-10 rotate-3 hover:rotate-0 transition-transform duration-500"
               referrerPolicy="no-referrer"
