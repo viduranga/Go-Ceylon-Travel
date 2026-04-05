@@ -147,17 +147,17 @@ export default function Home() {
             {[
               {
                 name: "Sigiriya",
-                image: "https://drive.google.com/uc?export=view&id=14EEULN6NnRJfjLY8v7n-y8YnItKR0aos",
+                image: "https://lh3.googleusercontent.com/d/193HwHFly5U6ayVn5byPi4BdEnOBfifMo",
                 desc: "The ancient rock fortress and UNESCO World Heritage site."
               },
               {
                 name: "Ella",
-                image: "https://images.unsplash.com/photo-1552423814-f41e0f7f4232?auto=format&fit=crop&q=80&w=800",
+                image: "https://lh3.googleusercontent.com/d/1jFGe3r9YCzES54_pFBJcIfZqtZQV38Be",
                 desc: "A small town in the highlands, famous for the Nine Arches Bridge."
               },
               {
                 name: "Galle",
-                image: "https://images.unsplash.com/photo-1627664819818-e147d6221422?auto=format&fit=crop&q=80&w=800",
+                image: "https://lh3.googleusercontent.com/d/18pjjbA6y3xErTb_rd0Nj4x7UbzcGoJj1",
                 desc: "A historic coastal city known for its Dutch Fort and colonial architecture."
               }
             ].map((dest, idx) => (

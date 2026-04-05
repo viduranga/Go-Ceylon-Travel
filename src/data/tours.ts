@@ -22,7 +22,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Quick Escape",
     duration: "3 Days / 2 Nights",
     route: "Airport/Colombo - Kandy - Sigiriya - Colombo",
-    image: "https://drive.google.com/uc?export=view&id=14EEULN6NnRJfjLY8v7n-y8YnItKR0aos",
+    image: "https://lh3.googleusercontent.com/d/193HwHFly5U6ayVn5byPi4BdEnOBfifMo",
     itinerary: [
       {
         day: 1,
@@ -43,7 +43,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Classical",
     duration: "5 Days / 4 Nights",
     route: "Airport / Colombo - Kandy - Nuwaraeliya - Ella - Colombo /Airport Via Galle",
-    image: "https://images.unsplash.com/photo-1552423814-f41e0f7f4232?auto=format&fit=crop&q=80&w=800",
+    image: "https://lh3.googleusercontent.com/d/1jFGe3r9YCzES54_pFBJcIfZqtZQV38Be",
     itinerary: [
       {
         day: 1,
@@ -107,7 +107,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Most Popular",
     duration: "7 Days / 6 Nights",
     route: "Airport - Colombo - Sigiriya - Kandy - Nuwaraeliya - Ella - Yala - Galle - Airport/ Colombo",
-    image: "https://images.unsplash.com/photo-1627664819818-e147d6221422?auto=format&fit=crop&q=80&w=800",
+    image: "https://lh3.googleusercontent.com/d/18pjjbA6y3xErTb_rd0Nj4x7UbzcGoJj1",
     itinerary: [
       {
         day: 1,
