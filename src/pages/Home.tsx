@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowRight, ShieldCheck, Star, Users, MapPin, Compass, CheckCircle2, Quote, MessageSquare, X, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/src/lib/utils";
@@ -50,13 +51,20 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
+      <Helmet>
+        <title>Go Ceylon Travel | Best Sri Lanka Tours & Private Tour Planner 2026</title>
+        <meta name="description" content="Experience the best Sri Lanka tours with Go Ceylon Travel. We offer private tour planning, luxury transport, and authentic local experiences across the island." />
+        <meta name="keywords" content="Sri Lanka tours, private tour planner Sri Lanka, best travel agency Sri Lanka, Sri Lanka holiday packages 2026" />
+        <link rel="canonical" href="https://goceylontravel.com/" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative h-[90vh] flex items-center justify-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg"
-            alt="Visit Sri Lanka 2026 - Best tours in Sri Lanka"
+            alt="Scenic landscape of Sri Lanka - Best tours in Sri Lanka 2026"
             title="Visit Sri Lanka 2026"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
@@ -396,12 +404,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Special Honeymoon Tour Plan", desc: "A romantic 7-day journey with 10% off for couples.", isSpecial: true },
-              { title: "3 Day Mini Sri Lanka Tour", desc: "A quick escape to Kandy and Sigiriya." },
-              { title: "5 Day Classical Sri Lanka Tour", desc: "Explore the hill country and southern coast." },
-              { title: "7 Day Most Popular Sri Lanka Tour", desc: "The perfect balance of culture, nature, and beach." },
-              { title: "10 Day Grand Sri Lanka Tour Plan", desc: "A comprehensive journey through the island's best spots." },
-              { title: "14 Day Best Sri Lanka Itinerary", desc: "The ultimate island experience with a private tour planner." }
+              { title: "Romantic Sri Lanka Getaway", desc: "A luxury honeymoon tour featuring an intimate Ella escape and private beach dinners.", isSpecial: true },
+              { title: "Short Sri Lanka Tour", desc: "A quick escape to Kandy and Sigiriya, perfect for a 3-day cultural introduction." },
+              { title: "Cultural Heart of Sri Lanka", desc: "A 5-day itinerary through heritage sites and Nuwara Eliya tea plantations." },
+              { title: "Best of Sri Lanka in 1 Week", desc: "Our most popular 7-day tour from Sigiriya to Galle with a Yala safari." },
+              { title: "10-Day Grand Private Tour", desc: "Explore ancient cities and enjoy Mirissa whale watching in total comfort." },
+              { title: "Full Island Discovery", desc: "A comprehensive 14-day tour uncovering hidden gems from North to South." }
             ].map((pkg, idx) => (
               <motion.div
                 key={idx}

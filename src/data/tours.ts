@@ -11,6 +11,8 @@ export interface TourPlan {
   subtitle: string;
   duration: string;
   route: string;
+  description?: string;
+  metaDescription?: string;
   itinerary: TourDay[];
   image: string;
   imageAlt?: string;
@@ -21,10 +23,12 @@ export interface TourPlan {
 export const toursData: TourPlan[] = [
   {
     id: "00",
-    title: "Special Honeymoon Tour Plan",
+    title: "Romantic Sri Lanka Getaway: Luxury Honeymoon & Intimate Ella Escape",
     subtitle: "Special Offer - 10% Off",
     duration: "7 Days / 6 Nights",
     route: "BIA/Colombo - Sigiriya - Kandy - Nuwaraeliya - Ella - Yala - Galle - BIA",
+    description: "Celebrate your new beginning with a romantic Sri Lanka getaway designed for pure enchantment. From an intimate Ella and beach escape to luxury mountain retreats, we create memories that last a lifetime.\n\nWhy Choose Us: As your dedicated tour planners, we handle every detail so you can focus on each other. Our private, discreet service ensures your honeymoon is as intimate as it is unforgettable.",
+    metaDescription: "Plan your romantic Sri Lanka getaway. Our luxury honeymoon tour features an intimate Ella escape, private beach dinners, and breathtaking mountain retreats.",
     image: "https://goceylontravel.com/uploads/romantic-honeymoon-tour-sri-lanka.jpeg",
     imageAlt: "A romantic honeymoon couple enjoying a private sunset tour in Sri Lanka with Go Ceylon Travel.",
     imageTitle: "Sri Lanka honeymoon packages, Romantic Sri Lanka tour, Luxury honeymoon Sri Lanka",
@@ -101,10 +105,12 @@ export const toursData: TourPlan[] = [
   },
   {
     id: "01",
-    title: "03 Day Mini Sri Lanka Tour",
+    title: "Short Sri Lanka Tour: Kandy and Sigiriya 3-Day Trip",
     subtitle: "Quick Escape",
     duration: "3 Days / 2 Nights",
     route: "Airport/Colombo - Kandy - Sigiriya - Colombo",
+    description: "Looking for a quick escape to the heart of the island? Our 3-day mini tour is the perfect introduction to Sri Lanka’s cultural triangle, blending ancient history with lush hill-country charm.\n\nWhy Choose Us: Experience the best of Sri Lanka without the stress. Our private transport and expert local tour planners ensure every minute of your short trip is maximized for comfort and discovery.",
+    metaDescription: "Explore the cultural heart of Sri Lanka on this 3-day Kandy and Sigiriya trip. A quick escape featuring ancient rocks, sacred temples, and expert local guides.",
     image: "https://goceylontravel.com/uploads/sigiriya-rock-fortress-tour.jpeg",
     itinerary: [
       {
@@ -143,10 +149,12 @@ export const toursData: TourPlan[] = [
   },
   {
     id: "02",
-    title: "05 Day Sri Lanka Tour",
+    title: "Cultural Heart of Sri Lanka: 5-Day Itinerary Through Heritage & Tea",
     subtitle: "Classical",
     duration: "5 Days / 4 Nights",
     route: "Airport / Colombo - Kandy - Nuwaraeliya - Ella - Colombo /Airport Via Galle",
+    description: "Immerse yourself in the cultural heart of Sri Lanka on this perfectly paced 5-day journey. From the misty Nuwara Eliya tea plantations to the ancient ruins of the North, experience the island’s timeless soul.\n\nWhy Choose Us: We go beyond the guidebook. With our deep local expertise and seamless private transfers, you’ll connect with the authentic heritage of our beautiful island.",
+    metaDescription: "Discover the cultural heart of Sri Lanka with our 5-day itinerary. Visit Nuwara Eliya tea plantations, ancient temples, and the royal city of Kandy in comfort.",
     image: "https://goceylontravel.com/uploads/ella-nine-arch-bridge.jpeg",
     itinerary: [
       {
@@ -208,10 +216,12 @@ export const toursData: TourPlan[] = [
   },
   {
     id: "03",
-    title: "07 Day Sri Lanka Tour",
+    title: "Best of Sri Lanka in 1 Week: Sigiriya to Galle Coastal Adventure",
     subtitle: "Most Popular",
     duration: "7 Days / 6 Nights",
     route: "Airport - Colombo - Sigiriya - Kandy - Nuwaraeliya - Ella - Yala - Galle - Airport/ Colombo",
+    description: "Experience the ultimate island loop with our most popular 7-day tour. This journey takes you from the majestic heights of Sigiriya to the golden sands of the south, offering the best of Sri Lanka in 1 week.\n\nWhy Choose Us: Your comfort is our priority. Enjoy a stress-free travel experience with a dedicated private vehicle and a tour planner who knows every hidden viewpoint and local secret.",
+    metaDescription: "See the best of Sri Lanka in 1 week! From Sigiriya to Galle, enjoy a Yala safari tour, scenic trains, and golden beaches with our private 7-day tour package.",
     image: "https://goceylontravel.com/uploads/temple-of-the-tooth-kandy.jpeg",
     itinerary: [
       {
@@ -292,10 +302,12 @@ export const toursData: TourPlan[] = [
   },
   {
     id: "04",
-    title: "10 Day Sri Lanka Tour Plan",
+    title: "10-Day Sri Lanka Private Tour: Ancient Cities & Mirissa Whale Watching",
     subtitle: "Grand Tour",
     duration: "10 Days / 9 Nights",
     route: "Airport - Colombo - Sigiriya - Polonnaruwa - Kandy - Nuwaraeliya - Ella - Yala - Mirissa - Galle - Colombo/ Airport",
+    description: "Embark on a grand exploration of the island’s most iconic treasures and hidden gems. This 10-day Sri Lanka private tour balances deep ancient cities exploration with breathtaking coastal relaxation.\n\nWhy Choose Us: With over a decade of experience, we provide a personalized journey that matches your pace. Our private transport ensures you travel in safety and style across the entire island.",
+    metaDescription: "Experience a 10-day Sri Lanka private tour. Explore ancient cities, hike Ella’s peaks, and enjoy Mirissa whale watching with our expert local tour planners.",
     image: "https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg",
     itinerary: [
       {
@@ -407,10 +419,12 @@ export const toursData: TourPlan[] = [
   },
   {
     id: "05",
-    title: "14 Day Sri Lanka Tour Plan",
+    title: "Full Island Discovery: Comprehensive 14-Day Sri Lanka Tour",
     subtitle: "Complete Island Experience",
     duration: "14 Days / 13 Nights",
     route: "Airport / Colombo - Negombo - Sigiriya - Polonnaruwa - Trincomalee - Kandy - Nuwaraeliya - Ella - Udawalawa Or Yala - Mirissa - Galle - Bentota - Colombo",
+    description: "For the traveler who wants to see it all, our full island discovery offers an unparalleled deep dive into Sri Lankan life. Uncover the hidden gems of the North and South on this comprehensive 14-day Sri Lanka tour.\n\nWhy Choose Us: We specialize in personalized journeys that go beyond the typical tourist paths. Our local expertise ensures a deep connection with our culture, heritage, and people.",
+    metaDescription: "Embark on a full island discovery with our 14-day Sri Lanka tour. Uncover hidden gems from Jaffna to Galle on the most comprehensive island itinerary available.",
     image: "https://goceylontravel.com/uploads/Go%20Ceylon%20Travel.jpeg",
     imageAlt: "14-day ultimate Sri Lanka discovery tour covering major cultural and beach destinations",
     imageTitle: "Go Ceylon Travel 14-Day Plan",

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
+import { Helmet } from "react-helmet-async";
 import { ShieldCheck, Star, Users, MapPin, Compass, Heart, Award, Camera } from "lucide-react";
 
 const galleryImages = [
@@ -58,6 +59,11 @@ const galleryImages = [
 export default function About() {
   return (
     <div className="bg-white min-h-screen">
+      <Helmet>
+        <title>About Us | Go Ceylon Travel - Your Sri Lanka Tour Planner</title>
+        <meta name="description" content="Learn more about Go Ceylon Travel, our mission to showcase the true heart of Sri Lanka, and our team of expert tour planners with over a decade of experience." />
+        <link rel="canonical" href="https://goceylontravel.com/about" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

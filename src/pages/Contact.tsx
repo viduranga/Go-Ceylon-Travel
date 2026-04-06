@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Mail, Phone, MapPin, Send, Clock, MessageSquare, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
 import { cn } from "@/src/lib/utils";
@@ -18,6 +19,11 @@ export default function Contact() {
 
   return (
     <div className="bg-white min-h-screen pb-24">
+      <Helmet>
+        <title>Contact Us | Go Ceylon Travel - Book Your Sri Lanka Tour</title>
+        <meta name="description" content="Get in touch with Go Ceylon Travel to book your private Sri Lanka tour or request a custom itinerary. We are here to help you plan your dream holiday." />
+        <link rel="canonical" href="https://goceylontravel.com/contact" />
+      </Helmet>
       {/* Header */}
       <section className="bg-emerald-950 py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">

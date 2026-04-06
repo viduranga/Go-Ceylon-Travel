@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
+import { Helmet } from "react-helmet-async";
 import { MapPin, ArrowRight, Compass, Camera, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -65,6 +66,11 @@ const destinations = [
 export default function Destinations() {
   return (
     <div className="bg-white min-h-screen">
+      <Helmet>
+        <title>Top Sri Lanka Destinations | Go Ceylon Travel</title>
+        <meta name="description" content="Explore the best destinations in Sri Lanka. From the ancient rock fortress of Sigiriya to the tropical beaches of Mirissa, discover the beauty of the island." />
+        <link rel="canonical" href="https://goceylontravel.com/destinations" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

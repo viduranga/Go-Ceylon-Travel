@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Upload, Image as ImageIcon, CheckCircle2, AlertCircle, Loader2, Trash2 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -47,6 +48,10 @@ export default function Admin() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <Helmet>
+        <title>Admin Media Manager | Go Ceylon Travel</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="mb-12">
         <h1 className="text-4xl font-bold text-emerald-900 mb-4">Media Manager</h1>
         <p className="text-gray-600">Upload and manage images for your tours and destinations.</p>

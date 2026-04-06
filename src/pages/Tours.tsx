@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { toursData, TourPlan } from "@/src/data/tours";
 import { Calendar, MapPin, Clock, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -60,6 +61,14 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
             <p className="text-sm font-medium leading-relaxed">{tour.route}</p>
           </div>
         </div>
+
+        {tour.description && (
+          <div className="mb-8">
+            <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
+              {tour.description}
+            </p>
+          </div>
+        )}
 
         {/* Itinerary Preview/Full */}
         <div className="space-y-4 mb-8 flex-grow">
@@ -133,6 +142,11 @@ export default function Tours() {
 
   return (
     <div className="bg-white min-h-screen pb-24">
+      <Helmet>
+        <title>Sri Lanka Tour Packages 2026 | Go Ceylon Travel</title>
+        <meta name="description" content="Browse our curated Sri Lanka tour packages. From 3-day quick escapes to 14-day full island discoveries, find the perfect itinerary for your Sri Lankan adventure." />
+        <link rel="canonical" href="https://goceylontravel.com/tours" />
+      </Helmet>
       {/* Header */}
       <section className="bg-emerald-950 py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
