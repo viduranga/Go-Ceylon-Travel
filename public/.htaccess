@@ -2,13 +2,17 @@
   RewriteEngine On
   RewriteBase /
 
-  # 1. ALLOW GOOGLE TO SEE THESE FILES DIRECTLY
-  RewriteRule ^sitemap\.xml$ sitemap.xml [L]
-  RewriteRule ^robots\.txt$ robots.txt [L]
+  # Specific rule for SEO files
+  RewriteRule ^(sitemap\.xml|robots\.txt)$ - [L]
 
-  # 2. STANDARD REACT ROUTING
   RewriteRule ^index\.html$ - [L]
+  
+  # This tells the server: "If the file doesn't exist, use index.html"
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # ADD THIS LINE to prevent the app from "eating" your XML files
+  RewriteCond %{REQUEST_URI} !^/(sitemap\.xml|robots\.txt)
+  
   RewriteRule . /index.html [L]
 </IfModule>
