@@ -76,8 +76,8 @@ export default function Home() {
               <span>The #1 Rated Travel Agency in Sri Lanka</span>
             </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
-              Discover the Magic of <br />
-              <span className="text-emerald-400 italic font-serif">Sri Lanka</span>
+              Best <span className="text-emerald-400 italic font-serif">Sri Lanka Tours</span> & <br />
+              Private Driver Services 2026
             </h1>
             <p className="text-lg md:text-xl text-emerald-50/80 max-w-2xl mx-auto font-light leading-relaxed">
               Experience breathtaking landscapes, ancient heritage, and warm hospitality with Go Ceylon Travel. Your journey to paradise starts here.
@@ -161,6 +161,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Tour Highlights Gallery */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">Tour Highlights</h2>
+            <p className="text-3xl md:text-4xl font-bold text-gray-900">Experience the Best of Sri Lanka</p>
+            <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                url: "https://goceylontravel.com/uploads/about/sigiriya-rock-fortress-guided-tour.jpeg",
+                alt: "Sigiriya Rock Fortress Guided Tour",
+                title: "Sigiriya Rock Fortress Guided Tour"
+              },
+              {
+                url: "https://goceylontravel.com/uploads/about/nine-arch-bridge-view.jpeg",
+                alt: "Nine Arch Bridge Ella Scenic View",
+                title: "Nine Arch Bridge Ella Scenic View"
+              },
+              {
+                url: "https://goceylontravel.com/uploads/about/ella-railway-station-tour-sri-lanka.jpeg",
+                alt: "Ella Train Tour Experience",
+                title: "Ella Train Tour Experience"
+              },
+              {
+                url: "https://goceylontravel.com/uploads/about/kandy-temple-heritage-group-tour.jpeg",
+                alt: "Kandy Temple of the Tooth Cultural Tour",
+                title: "Kandy Temple of the Tooth Cultural Tour"
+              },
+              {
+                url: "https://goceylontravel.com/uploads/about/southern-sri-lanka-beach-tour.jpeg",
+                alt: "Mirissa and Galle Beach Tour",
+                title: "Mirissa and Galle Beach Tour"
+              },
+              {
+                url: "https://goceylontravel.com/uploads/about/authentic-tea-plucking-experience.jpeg",
+                alt: "Nuwara Eliya Tea Plantation Experience",
+                title: "Nuwara Eliya Tea Plantation Experience"
+              }
+            ].map((img, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="relative h-64 rounded-2xl overflow-hidden shadow-lg group"
+              >
+                <img
+                  src={img.url}
+                  alt={img.alt}
+                  title={img.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                <div className="absolute bottom-4 left-4 text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                  {img.alt}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Featured Destinations */}
       <section id="destinations" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -223,6 +290,41 @@ export default function Home() {
                     Explore Tours
                   </Link>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tour Packages Section */}
+      <section className="py-24 bg-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">Our Popular Sri Lanka Tour Packages</h2>
+            <p className="text-3xl md:text-4xl font-bold text-gray-900">Customized Itineraries for Every Traveler</p>
+            <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: "3 Day Mini Sri Lanka Tour", desc: "A quick escape to Kandy and Sigiriya." },
+              { title: "5 Day Classical Sri Lanka Tour", desc: "Explore the hill country and southern coast." },
+              { title: "7 Day Most Popular Sri Lanka Tour", desc: "The perfect balance of culture, nature, and beach." },
+              { title: "10 Day Grand Sri Lanka Tour Plan", desc: "A comprehensive journey through the island's best spots." },
+              { title: "14 Day Best Sri Lanka Itinerary", desc: "The ultimate island experience with a private driver." }
+            ].map((pkg, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white p-8 rounded-3xl shadow-sm border border-emerald-100 hover:shadow-md transition-all"
+              >
+                <h3 className="text-xl font-bold text-emerald-900 mb-3">{pkg.title}</h3>
+                <p className="text-gray-600 text-sm mb-6">{pkg.desc}</p>
+                <Link to="/tours" className="text-emerald-600 font-bold text-sm flex items-center gap-2">
+                  View Details <ArrowRight className="w-4 h-4" />
+                </Link>
               </motion.div>
             ))}
           </div>
