@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Star, Users, MapPin, Compass, CheckCircle2 } from "lucide-react";
-import { motion } from "motion/react";
+import { ArrowRight, ShieldCheck, Star, Users, MapPin, Compass, CheckCircle2, Quote, MessageSquare, X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { cn } from "@/src/lib/utils";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -18,6 +19,35 @@ const staggerContainer = {
 };
 
 export default function Home() {
+  const [isReviewModalOpen, setIsReviewModalOpen] = React.useState(false);
+  const [reviews, setReviews] = React.useState<{
+    id: number;
+    name: string;
+    location: string;
+    rating: number;
+    comment: string;
+    date: string;
+  }[]>([]);
+
+  const [newReview, setNewReview] = React.useState({
+    name: "",
+    location: "",
+    rating: 5,
+    comment: ""
+  });
+
+  const handleReviewSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const review = {
+      ...newReview,
+      id: Date.now(),
+      date: "Just now"
+    };
+    setReviews([review, ...reviews]);
+    setIsReviewModalOpen(false);
+    setNewReview({ name: "", location: "", rating: 5, comment: "" });
+  };
+
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -197,6 +227,162 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-emerald-50/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="space-y-4">
+              <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">Testimonials</h2>
+              <p className="text-3xl md:text-4xl font-bold text-gray-900">What Our Travelers Say</p>
+            </div>
+            <button 
+              onClick={() => setIsReviewModalOpen(true)}
+              className="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/20 active:scale-95"
+            >
+              <MessageSquare className="w-5 h-5" />
+              Write a Review
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {reviews.length > 0 ? (
+              reviews.slice(0, 3).map((review, idx) => (
+                <motion.div
+                  key={review.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-white p-8 rounded-[2rem] shadow-sm border border-emerald-100 relative group hover:shadow-xl transition-all"
+                >
+                  <Quote className="w-10 h-10 text-emerald-100 absolute top-6 right-8 group-hover:text-emerald-200 transition-colors" />
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className={cn(
+                          "w-4 h-4", 
+                          i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
+                        )} 
+                      />
+                    ))}
+                  </div>
+                  <p className="text-gray-600 italic mb-6 leading-relaxed">"{review.comment}"</p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-lg">
+                      {review.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{review.name}</h4>
+                      <p className="text-xs text-emerald-600/60 font-medium">{review.location} • {review.date}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))
+            ) : (
+              <div className="col-span-1 md:col-span-3 text-center py-12">
+                <p className="text-emerald-900/40 font-medium">No reviews yet. Be the first to share your experience!</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Review Modal */}
+      <AnimatePresence>
+        {isReviewModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsReviewModalOpen(false)}
+              className="absolute inset-0 bg-emerald-950/60 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative bg-white w-full max-w-lg rounded-[2.5rem] p-8 md:p-10 shadow-2xl overflow-hidden"
+            >
+              <button 
+                onClick={() => setIsReviewModalOpen(false)}
+                className="absolute top-6 right-6 p-2 hover:bg-emerald-50 rounded-full transition-colors text-gray-400"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Write a Review</h3>
+                <p className="text-gray-500 text-sm">Share your experience with Go Ceylon Travel.</p>
+              </div>
+
+              <form onSubmit={handleReviewSubmit} className="space-y-5">
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-gray-700 ml-1">Full Name</label>
+                  <input
+                    required
+                    type="text"
+                    value={newReview.name}
+                    onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+                    placeholder="Your Name"
+                    className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-gray-700 ml-1">Location</label>
+                  <input
+                    required
+                    type="text"
+                    value={newReview.location}
+                    onChange={(e) => setNewReview({ ...newReview, location: e.target.value })}
+                    placeholder="e.g. London, UK"
+                    className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-gray-700 ml-1">Rating</label>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        type="button"
+                        onClick={() => setNewReview({ ...newReview, rating: star })}
+                        className="p-1 hover:scale-110 transition-transform"
+                      >
+                        <Star 
+                          className={cn(
+                            "w-8 h-8 transition-colors",
+                            star <= newReview.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
+                          )}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-gray-700 ml-1">Your Review</label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={newReview.comment}
+                    onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+                    placeholder="How was your trip?"
+                    className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all resize-none"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-emerald-900 text-white py-5 rounded-2xl font-bold text-lg hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-[0.98] mt-4"
+                >
+                  Submit Review
+                </button>
+              </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* CTA Section */}
       <section className="py-24 bg-emerald-900 relative overflow-hidden">

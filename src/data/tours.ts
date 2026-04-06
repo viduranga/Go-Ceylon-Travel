@@ -317,5 +317,152 @@ export const toursData: TourPlan[] = [
         ]
       }
     ]
+  },
+  {
+    id: "05",
+    title: "14 Day Sri Lanka Tour Plan",
+    subtitle: "Complete Island Experience",
+    duration: "14 Days / 13 Nights",
+    route: "Airport / Colombo - Negombo - Sigiriya - Polonnaruwa - Trincomalee - Kandy - Nuwaraeliya - Ella - Udawalawa Or Yala - Mirissa - Galle - Bentota - Colombo",
+    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=800",
+    itinerary: [
+      {
+        day: 1,
+        title: "Airport - Negombo",
+        activities: [
+          "Airport pickup with warm welcome",
+          "Leisure at Negombo Beach"
+        ],
+        overnight: "Negombo"
+      },
+      {
+        day: 2,
+        title: "Negombo - Sigiriya",
+        activities: [
+          "Transfer to Sigiriya",
+          "Visit Dambulla Golden Cave Temple (UNESCO)"
+        ],
+        overnight: "Sigiriya"
+      },
+      {
+        day: 3,
+        title: "Sigiriya Tour",
+        activities: [
+          "Climb Sigiriya Early morning (See the sunrise)",
+          "Village Tour with traditional Sri Lankan Lunch",
+          "Evening Safari in Minneriya National Park (Elephants)"
+        ],
+        overnight: "Sigiriya"
+      },
+      {
+        day: 4,
+        title: "Sigiriya - Polonnaruwa - Sigiriya",
+        activities: [
+          "Explore Polonnaruwa Ancient City",
+          "Ayurveda Spa (Optional)"
+        ],
+        overnight: "Sigiriya"
+      },
+      {
+        day: 5,
+        title: "Sigiriya - Trincomalee",
+        activities: [
+          "Transfer to Trincomalee",
+          "Koneswaram Hindu Temple Visit",
+          "Nilaveli Beach Visit"
+        ],
+        overnight: "Trincomalee"
+      },
+      {
+        day: 6,
+        title: "Full Day in Trincomalee",
+        activities: [
+          "Pigeon Island Snorkeling",
+          "Leisure at Marble Beach"
+        ],
+        overnight: "Trincomalee"
+      },
+      {
+        day: 7,
+        title: "Trincomalee - Kandy",
+        activities: [
+          "Transfer to Kandy",
+          "Visit Ayurvedic Herbal Garden",
+          "Temple Of the Tooth in Kandy",
+          "Cultural Dance Show in the evening"
+        ],
+        overnight: "Kandy"
+      },
+      {
+        day: 8,
+        title: "Kandy - Nuwaraeliya",
+        activities: [
+          "Visit tea plantations",
+          "Tea factory visit & tea tasting",
+          "Ramboda Waterfall visit",
+          "Lake Gregory & Post office Visit"
+        ],
+        overnight: "Nuwaraeliya"
+      },
+      {
+        day: 9,
+        title: "Nuwaraeliya - Ella",
+        activities: [
+          "Scenic Train Ride from Nanuoya to Ella (World famous train ride)",
+          "Nine Arches Bridge Visit",
+          "Little Adam's Peak"
+        ],
+        overnight: "Ella"
+      },
+      {
+        day: 10,
+        title: "Ella - Udawalawa / Yala",
+        activities: [
+          "Yala Safari (if you interest to see leopards)",
+          "Udawalawa Safari (interest to see elephants)"
+        ],
+        overnight: "Udawalawa Or Yala"
+      },
+      {
+        day: 11,
+        title: "Safari - Mirissa",
+        activities: [
+          "Early Morning safari according to your choice (Udawalawa Or Yala)",
+          "Transfer to Mirissa",
+          "Enjoy on the Beach"
+        ],
+        overnight: "Mirissa"
+      },
+      {
+        day: 12,
+        title: "Mirissa - Galle",
+        activities: [
+          "Morning Whale watching",
+          "Coconut tree Hill / Secret Beach (choose one)",
+          "Stilt fishermen (can be seen only in downsouth)",
+          "Galle fort visit (see sunset)"
+        ],
+        overnight: "Galle"
+      },
+      {
+        day: 13,
+        title: "Galle - Bentota",
+        activities: [
+          "Sea turtle farm & Hatchery Visit",
+          "Moonstone mining Visit",
+          "Boat Safari in Madu River (Mangroves)"
+        ],
+        overnight: "Bentota"
+      },
+      {
+        day: 14,
+        title: "Bentota - Colombo - Airport",
+        activities: [
+          "Colombo City tour",
+          "Last minute Shopping",
+          "Drop off to Airport with unforgettable Memories"
+        ]
+      }
+    ]
   }
 ];
