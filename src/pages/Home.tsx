@@ -55,8 +55,9 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://lh3.googleusercontent.com/d/1J9SprxGCioFc2Uq7XGSHcmmJHvLcpQx9"
-            alt="Sri Lanka Landscape"
+            src="https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg"
+            alt="Visit Sri Lanka 2026 - Best tours in Sri Lanka"
+            title="Visit Sri Lanka 2026"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -177,12 +178,12 @@ export default function Home() {
             {[
               {
                 name: "Sigiriya",
-                image: "https://lh3.googleusercontent.com/d/193HwHFly5U6ayVn5byPi4BdEnOBfifMo",
+                image: "https://goceylontravel.com/uploads/sigiriya-rock-fortress-tour.jpeg",
                 desc: "The ancient rock fortress and UNESCO World Heritage site."
               },
               {
                 name: "Ella",
-                image: "https://lh3.googleusercontent.com/d/1jFGe3r9YCzES54_pFBJcIfZqtZQV38Be",
+                image: "https://goceylontravel.com/uploads/ella-nine-arch-bridge.jpeg",
                 desc: "A small town in the highlands, famous for the Nine Arches Bridge."
               },
               {

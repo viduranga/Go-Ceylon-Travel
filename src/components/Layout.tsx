@@ -16,7 +16,7 @@ export default function Layout({ children }: LayoutProps) {
     { name: "Home", path: "/" },
     { name: "Tours", path: "/tours" },
     { name: "Destinations", path: "/destinations" },
-    { name: "About Us", path: "/#about" },
+    { name: "About Us", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -142,7 +142,7 @@ export default function Layout({ children }: LayoutProps) {
                 <li><Link to="/" className="hover:text-emerald-400 transition-colors">Home</Link></li>
                 <li><Link to="/tours" className="hover:text-emerald-400 transition-colors">Our Tours</Link></li>
                 <li><Link to="/destinations" className="hover:text-emerald-400 transition-colors">Destinations</Link></li>
-                <li><a href="#about" className="hover:text-emerald-400 transition-colors">About Us</a></li>
+                <li><Link to="/about" className="hover:text-emerald-400 transition-colors">About Us</Link></li>
                 <li><Link to="/contact" className="hover:text-emerald-400 transition-colors">Contact</Link></li>
                 <li><Link to="/admin" className="hover:text-emerald-400 transition-colors">Media Manager</Link></li>
               </ul>

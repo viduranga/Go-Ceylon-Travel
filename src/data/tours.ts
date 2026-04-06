@@ -13,6 +13,8 @@ export interface TourPlan {
   route: string;
   itinerary: TourDay[];
   image: string;
+  imageAlt?: string;
+  imageTitle?: string;
 }
 
 export const toursData: TourPlan[] = [
@@ -22,7 +24,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Quick Escape",
     duration: "3 Days / 2 Nights",
     route: "Airport/Colombo - Kandy - Sigiriya - Colombo",
-    image: "https://lh3.googleusercontent.com/d/193HwHFly5U6ayVn5byPi4BdEnOBfifMo",
+    image: "https://goceylontravel.com/uploads/sigiriya-rock-fortress-tour.jpeg",
     itinerary: [
       {
         day: 1,
@@ -63,7 +65,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Classical",
     duration: "5 Days / 4 Nights",
     route: "Airport / Colombo - Kandy - Nuwaraeliya - Ella - Colombo /Airport Via Galle",
-    image: "https://lh3.googleusercontent.com/d/1jFGe3r9YCzES54_pFBJcIfZqtZQV38Be",
+    image: "https://goceylontravel.com/uploads/ella-nine-arch-bridge.jpeg",
     itinerary: [
       {
         day: 1,
@@ -127,7 +129,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Most Popular",
     duration: "7 Days / 6 Nights",
     route: "Airport - Colombo - Sigiriya - Kandy - Nuwaraeliya - Ella - Yala - Galle - Airport/ Colombo",
-    image: "https://lh3.googleusercontent.com/d/1aydnnhwrM8clqQD8sAigZbZUWcejrrYk",
+    image: "https://goceylontravel.com/uploads/temple-of-the-tooth-kandy.jpeg",
     itinerary: [
       {
         day: 1,
@@ -210,7 +212,7 @@ export const toursData: TourPlan[] = [
     subtitle: "Grand Tour",
     duration: "10 Days / 9 Nights",
     route: "Airport - Colombo - Sigiriya - Polonnaruwa - Kandy - Nuwaraeliya - Ella - Yala - Mirissa - Galle - Colombo/ Airport",
-    image: "https://lh3.googleusercontent.com/d/1J9SprxGCioFc2Uq7XGSHcmmJHvLcpQx9",
+    image: "https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg",
     itinerary: [
       {
         day: 1,
@@ -324,7 +326,9 @@ export const toursData: TourPlan[] = [
     subtitle: "Complete Island Experience",
     duration: "14 Days / 13 Nights",
     route: "Airport / Colombo - Negombo - Sigiriya - Polonnaruwa - Trincomalee - Kandy - Nuwaraeliya - Ella - Udawalawa Or Yala - Mirissa - Galle - Bentota - Colombo",
-    image: "https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=800",
+    image: "https://goceylontravel.com/uploads/Go%20Ceylon%20Travel.jpeg",
+    imageAlt: "14-day ultimate Sri Lanka discovery tour covering major cultural and beach destinations",
+    imageTitle: "Go Ceylon Travel 14-Day Plan",
     itinerary: [
       {
         day: 1,

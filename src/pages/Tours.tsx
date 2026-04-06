@@ -19,7 +19,8 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
       <div className="relative h-72 overflow-hidden shrink-0">
         <img
           src={tour.image}
-          alt={tour.title}
+          alt={tour.imageAlt || tour.title}
+          title={tour.imageTitle}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           referrerPolicy="no-referrer"
         />
@@ -115,8 +116,8 @@ export default function Tours() {
       <section className="bg-emerald-950 py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
-            src="https://lh3.googleusercontent.com/d/1J9SprxGCioFc2Uq7XGSHcmmJHvLcpQx9"
-            alt="Background"
+            src="https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg"
+            alt="Visit Sri Lanka 2026 - Best tours in Sri Lanka"
             className="w-full h-full object-cover grayscale"
             referrerPolicy="no-referrer"
           />

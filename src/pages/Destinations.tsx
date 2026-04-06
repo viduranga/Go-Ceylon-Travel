@@ -7,14 +7,14 @@ const destinations = [
   {
     id: "sigiriya",
     name: "Sigiriya",
-    image: "https://lh3.googleusercontent.com/d/193HwHFly5U6ayVn5byPi4BdEnOBfifMo",
+    image: "https://goceylontravel.com/uploads/sigiriya-rock-fortress-tour.jpeg",
     description: "The 'Lion Rock' is an ancient rock fortress located in the northern Matale District. It is a UNESCO World Heritage site and one of the most visited historic sites in Sri Lanka.",
     highlights: ["Ancient Rock Fortress", "Mirror Wall", "Frescoes", "Water Gardens"]
   },
   {
     id: "ella",
     name: "Ella",
-    image: "https://lh3.googleusercontent.com/d/1jFGe3r9YCzES54_pFBJcIfZqtZQV38Be",
+    image: "https://goceylontravel.com/uploads/ella-nine-arch-bridge.jpeg",
     description: "A small town in the Badulla District of Uva Province, Ella is surrounded by hills covered with cloud forests and tea plantations. It's a paradise for hikers and nature lovers.",
     highlights: ["Nine Arches Bridge", "Little Adam's Peak", "Ella Rock", "Ravana Falls"]
   },
@@ -28,7 +28,7 @@ const destinations = [
   {
     id: "kandy",
     name: "Kandy",
-    image: "https://lh3.googleusercontent.com/d/1aydnnhwrM8clqQD8sAigZbZUWcejrrYk",
+    image: "https://goceylontravel.com/uploads/temple-of-the-tooth-kandy.jpeg",
     description: "The cultural capital of Sri Lanka, Kandy is home to the Temple of the Sacred Tooth Relic. It's set on a plateau surrounded by mountains, which are home to tea plantations and biodiverse rainforest.",
     highlights: ["Temple of the Tooth", "Kandy Lake", "Royal Botanical Gardens", "Bahirawakanda Buddha"]
   },
@@ -42,7 +42,7 @@ const destinations = [
   {
     id: "yala",
     name: "Yala National Park",
-    image: "https://lh3.googleusercontent.com/d/12zIAQL_VNaKqRLG_aunAFc7aHpLiuHM0",
+    image: "https://goceylontravel.com/uploads/Udawalawe-national-park-safari.jpg",
     description: "The most visited and second largest national park in Sri Lanka. It's famous for its variety of wild animals, especially the Sri Lankan leopard, elephant, and aquatic birds.",
     highlights: ["Leopard Safaris", "Elephant Sightings", "Bird Watching", "Coastal Scenery"]
   },
@@ -69,8 +69,8 @@ export default function Destinations() {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://lh3.googleusercontent.com/d/1J9SprxGCioFc2Uq7XGSHcmmJHvLcpQx9"
-            alt="Sri Lanka Destinations"
+            src="https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg"
+            alt="Visit Sri Lanka 2026 - Best tours in Sri Lanka"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
