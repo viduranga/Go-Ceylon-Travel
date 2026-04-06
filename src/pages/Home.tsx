@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Star, Users, MapPin, Compass, CheckCircle2, Quote, MessageSquare, X } from "lucide-react";
+import { ArrowRight, ShieldCheck, Star, Users, MapPin, Compass, CheckCircle2, Quote, MessageSquare, X, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/src/lib/utils";
 
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
               Best <span className="text-emerald-400 italic font-serif">Sri Lanka Tours</span> & <br />
-              Private Driver Services 2026
+              Private Tour Planner Services 2026
             </h1>
             <p className="text-lg md:text-xl text-emerald-50/80 max-w-2xl mx-auto font-light leading-relaxed">
               Experience breathtaking landscapes, ancient heritage, and warm hospitality with Go Ceylon Travel. Your journey to paradise starts here.
@@ -110,6 +110,95 @@ export default function Home() {
             <div className="w-1 h-2 bg-white/50 rounded-full" />
           </div>
         </motion.div>
+      </section>
+
+      {/* Honeymoon Section */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="w-full lg:w-1/2 relative aspect-[16/10] rounded-[2.5rem] overflow-hidden shadow-2xl">
+              <img 
+                src="https://goceylontravel.com/uploads/romantic-honeymoon-tour-sri-lanka.jpeg" 
+                alt="A romantic honeymoon couple enjoying a private sunset tour in Sri Lanka with Go Ceylon Travel." 
+                title="Sri Lanka honeymoon packages, Romantic Sri Lanka tour, Luxury honeymoon Sri Lanka"
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-emerald-100 flex items-center gap-4">
+                <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white">
+                  <Heart className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-pink-600 uppercase tracking-widest">Romantic Getaway</p>
+                  <p className="text-lg font-bold text-gray-900">Private & Intimate</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full lg:w-1/2 space-y-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-emerald-600">
+                  <Star className="w-5 h-5 fill-emerald-600" />
+                  <span className="text-sm font-bold uppercase tracking-[0.2em]">Luxury Honeymoon Sri Lanka</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                  Experience the Ultimate <br />
+                  <span className="text-emerald-600">Romantic Escape</span>
+                </h2>
+                <p className="text-gray-600 text-lg leading-relaxed font-light">
+                  Experience the ultimate romantic escape with Go Ceylon Travel. Our bespoke Sri Lanka honeymoon packages include private luxury transport, intimate candlelit dinners, and breathtaking stays in Ella and the South Coast. Book your dream 2026 honeymoon today.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 shrink-0">
+                    <CheckCircle2 className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Private & Intimate Tours</h4>
+                    <p className="text-sm text-gray-500">Exclusively for you and your partner.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 shrink-0">
+                    <CheckCircle2 className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Luxury Honeymoon Suites</h4>
+                    <p className="text-sm text-gray-500">Handpicked romantic accommodations.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 shrink-0">
+                    <CheckCircle2 className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Misty Mountains (Ella)</h4>
+                    <p className="text-sm text-gray-500">Breathtaking views and cool climate.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 shrink-0">
+                    <CheckCircle2 className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Golden Beaches (Bentota)</h4>
+                    <p className="text-sm text-gray-500">Sun-kissed shores and private dinners.</p>
+                  </div>
+                </div>
+              </div>
+
+              <Link
+                to="/tours"
+                className="inline-flex items-center gap-2 bg-emerald-900 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-95"
+              >
+                View Honeymoon Packages
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Why Choose Us */}
@@ -178,7 +267,7 @@ export default function Home() {
                 title: "Sigiriya Rock Fortress Guided Tour"
               },
               {
-                url: "https://goceylontravel.com/uploads/about/nine-arch-bridge-view.jpeg",
+                url: "https://goceylontravel.com/uploads/about/sri-lanka-private-guided-tours-c.jpeg",
                 alt: "Nine Arch Bridge Ella Scenic View",
                 title: "Nine Arch Bridge Ella Scenic View"
               },
@@ -193,7 +282,7 @@ export default function Home() {
                 title: "Kandy Temple of the Tooth Cultural Tour"
               },
               {
-                url: "https://goceylontravel.com/uploads/about/southern-sri-lanka-beach-tour.jpeg",
+                url: "https://goceylontravel.com/uploads/about/mirissa-beach-coastal-tour-sri-lanka.jpeg",
                 alt: "Mirissa and Galle Beach Tour",
                 title: "Mirissa and Galle Beach Tour"
               },
@@ -307,19 +396,28 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
+              { title: "Special Honeymoon Tour Plan", desc: "A romantic 7-day journey with 10% off for couples.", isSpecial: true },
               { title: "3 Day Mini Sri Lanka Tour", desc: "A quick escape to Kandy and Sigiriya." },
               { title: "5 Day Classical Sri Lanka Tour", desc: "Explore the hill country and southern coast." },
               { title: "7 Day Most Popular Sri Lanka Tour", desc: "The perfect balance of culture, nature, and beach." },
               { title: "10 Day Grand Sri Lanka Tour Plan", desc: "A comprehensive journey through the island's best spots." },
-              { title: "14 Day Best Sri Lanka Itinerary", desc: "The ultimate island experience with a private driver." }
+              { title: "14 Day Best Sri Lanka Itinerary", desc: "The ultimate island experience with a private tour planner." }
             ].map((pkg, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-3xl shadow-sm border border-emerald-100 hover:shadow-md transition-all"
+                className={cn(
+                  "bg-white p-8 rounded-3xl shadow-sm border transition-all relative",
+                  pkg.isSpecial ? "border-emerald-500 shadow-emerald-500/10" : "border-emerald-100 hover:shadow-md"
+                )}
               >
+                {pkg.isSpecial && (
+                  <span className="absolute -top-3 -right-3 bg-emerald-500 text-emerald-950 text-[10px] font-bold px-3 py-1 rounded-full shadow-lg border border-emerald-400">
+                    SPECIAL OFFER
+                  </span>
+                )}
                 <h3 className="text-xl font-bold text-emerald-900 mb-3">{pkg.title}</h3>
                 <p className="text-gray-600 text-sm mb-6">{pkg.desc}</p>
                 <Link to="/tours" className="text-emerald-600 font-bold text-sm flex items-center gap-2">
@@ -340,8 +438,12 @@ export default function Home() {
               <p className="text-3xl md:text-4xl font-bold text-gray-900">What Our Travelers Say</p>
             </div>
             <button 
-              onClick={() => setIsReviewModalOpen(true)}
-              className="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/20 active:scale-95"
+              type="button"
+              onClick={() => {
+                console.log("Opening review modal");
+                setIsReviewModalOpen(true);
+              }}
+              className="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/20 active:scale-95 relative z-10"
             >
               <MessageSquare className="w-5 h-5" />
               Write a Review

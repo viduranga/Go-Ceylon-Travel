@@ -15,9 +15,90 @@ export interface TourPlan {
   image: string;
   imageAlt?: string;
   imageTitle?: string;
+  isSpecial?: boolean;
 }
 
 export const toursData: TourPlan[] = [
+  {
+    id: "00",
+    title: "Special Honeymoon Tour Plan",
+    subtitle: "Special Offer - 10% Off",
+    duration: "7 Days / 6 Nights",
+    route: "BIA/Colombo - Sigiriya - Kandy - Nuwaraeliya - Ella - Yala - Galle - BIA",
+    image: "https://goceylontravel.com/uploads/romantic-honeymoon-tour-sri-lanka.jpeg",
+    imageAlt: "A romantic honeymoon couple enjoying a private sunset tour in Sri Lanka with Go Ceylon Travel.",
+    imageTitle: "Sri Lanka honeymoon packages, Romantic Sri Lanka tour, Luxury honeymoon Sri Lanka",
+    isSpecial: true,
+    itinerary: [
+      {
+        day: 1,
+        title: "BIA - Colombo",
+        activities: [
+          "Warm Welcome at Airport",
+          "Colombo City Visit"
+        ],
+        overnight: "Colombo Hotel"
+      },
+      {
+        day: 2,
+        title: "Colombo - Sigiriya",
+        activities: [
+          "Dambulla Cave temple Visit",
+          "Sigiriya Village tour with traditional Lunch",
+          "Climb Sigiriya"
+        ],
+        overnight: "Sigiriya"
+      },
+      {
+        day: 3,
+        title: "Sigiriya - Kandy",
+        activities: [
+          "Spice Garden Visit",
+          "Hindu temple Visit",
+          "Temple of the Tooth",
+          "Gem Museum Visit"
+        ],
+        overnight: "Kandy"
+      },
+      {
+        day: 4,
+        title: "Kandy to Nuwaraeliya (Town of Romance)",
+        activities: [
+          "Tea plantations & factory visit",
+          "Ramboda waterfall visit",
+          "Royal Garden in Nuwaraeliya"
+        ],
+        overnight: "Nuwaraeliya (coldest city in sri lanka)"
+      },
+      {
+        day: 5,
+        title: "Nuwaraeliya - Ella - Yala",
+        activities: [
+          "Scenic train ride from Nanu Oya to Ella (World famous)",
+          "Nine arch bridge"
+        ],
+        overnight: "Yala"
+      },
+      {
+        day: 6,
+        title: "Yala - Galle",
+        activities: [
+          "Morning Safari in Yala National Park (Elephants, Leopards)",
+          "Relax in Mirissa Beach"
+        ],
+        overnight: "Galle"
+      },
+      {
+        day: 7,
+        title: "Galle - Colombo / BIA",
+        activities: [
+          "Koggala lake Boat Safari",
+          "Galle Fort Visit",
+          "Drop to Colombo / BIA With loving memories of your honeymoon tour"
+        ]
+      }
+    ]
+  },
   {
     id: "01",
     title: "03 Day Mini Sri Lanka Tour",
@@ -32,6 +113,7 @@ export const toursData: TourPlan[] = [
         activities: [
           "Visit Elephants In Pinnawala (Elephant Orphanage Or Elephant Foundation)",
           "Tea Factory Visit & Tea Plantation Visit",
+          "Moonstones Mining & Gem Museum Visit",
           "Explore Kandy Temple Of the Tooth (sacred)",
           "Cultural Dance Show in Kandy"
         ],
@@ -72,6 +154,7 @@ export const toursData: TourPlan[] = [
         title: "Colombo - Kandy",
         activities: [
           "Visit Elephants in Pinnawala",
+          "Moonstones Mining & Gem Museum Visit",
           "Visit Temple Of the Tooth",
           "Shopping in Kandy",
           "Cultural Dance Show"
@@ -157,6 +240,7 @@ export const toursData: TourPlan[] = [
         title: "Sigiriya - Kandy",
         activities: [
           "Ayurvedic Herbal Garden Visit",
+          "Moonstones Mining & Gem Museum Visit",
           "Visit of Hindu Temple, Matale",
           "Visit Temple of the Tooth",
           "Cultural Dance Show in the evening"
@@ -249,6 +333,7 @@ export const toursData: TourPlan[] = [
         title: "Sigiriya - Kandy",
         activities: [
           "Ayurvedic Herbal Garden Visit",
+          "Moonstones Mining & Gem Museum Visit",
           "Matale Hindu temple Visit",
           "Visit Temple of the Tooth",
           "Cultural Dance Show in the evening"
@@ -392,6 +477,7 @@ export const toursData: TourPlan[] = [
         activities: [
           "Transfer to Kandy",
           "Visit Ayurvedic Herbal Garden",
+          "Moonstones Mining & Gem Museum Visit",
           "Temple Of the Tooth in Kandy",
           "Cultural Dance Show in the evening"
         ],

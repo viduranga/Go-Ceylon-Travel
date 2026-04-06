@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone, MapPin, Send, Clock, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Clock, MessageSquare, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
 import { cn } from "@/src/lib/utils";
 
@@ -51,6 +51,14 @@ export default function Contact() {
           <div className="lg:col-span-1 space-y-6">
             {[
               {
+                icon: <MessageCircle className="w-6 h-6" />,
+                title: "WhatsApp",
+                value: "Chat with us",
+                sub: "Fastest response time",
+                link: "https://wa.me/message/TN4V2SLCNKHMI1",
+                color: "bg-[#25D366] text-white"
+              },
+              {
                 icon: <Phone className="w-6 h-6" />,
                 title: "Call Us",
                 value: "+94 76 313 1069",
@@ -80,7 +88,10 @@ export default function Contact() {
                 transition={{ delay: idx * 0.1 }}
                 className="block bg-white p-8 rounded-[2rem] border border-emerald-100 shadow-sm hover:shadow-xl hover:border-emerald-200 transition-all group"
               >
-                <div className="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                <div className={cn(
+                  "w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors",
+                  item.color || "bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white"
+                )}>
                   {item.icon}
                 </div>
                 <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">{item.title}</h3>

@@ -2,18 +2,28 @@ import React from "react";
 import { toursData, TourPlan } from "@/src/data/tours";
 import { Calendar, MapPin, Clock, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { useNavigate, Link } from "react-router-dom";
 import { cn } from "@/src/lib/utils";
 
 function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
   const [isExpanded, setIsExpanded] = React.useState(false);
+  const navigate = useNavigate();
+
+  const handleBookNow = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigate("/contact");
+    window.scrollTo(0, 0);
+  };
 
   return (
     <motion.div
-      layout
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-white rounded-[2rem] overflow-hidden border border-emerald-100 shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col h-full"
+      className={cn(
+        "bg-white rounded-[2rem] overflow-hidden border shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col h-full",
+        tour.isSpecial ? "border-emerald-500 ring-2 ring-emerald-500/20" : "border-emerald-100"
+      )}
     >
       {/* Image Section */}
       <div className="relative h-72 overflow-hidden shrink-0">
@@ -25,7 +35,12 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
           referrerPolicy="no-referrer"
         />
         <div className="absolute top-6 left-6 flex flex-col gap-2">
-          <span className="bg-emerald-900/90 backdrop-blur-md text-emerald-50 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-emerald-700/50">
+          <span className={cn(
+            "backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border",
+            tour.isSpecial 
+              ? "bg-emerald-500 text-emerald-950 border-emerald-400" 
+              : "bg-emerald-900/90 text-emerald-50 border-emerald-700/50"
+          )}>
             {tour.subtitle}
           </span>
           <span className="bg-white/90 backdrop-blur-md text-emerald-900 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-emerald-100 shadow-sm">
@@ -100,7 +115,11 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
           </div>
         </div>
 
-        <button className="w-full bg-emerald-900 text-white py-4 rounded-2xl font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/10 flex items-center justify-center gap-3 active:scale-[0.98]">
+        <button 
+          type="button"
+          onClick={handleBookNow}
+          className="w-full bg-emerald-900 text-white py-4 rounded-2xl font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/10 flex items-center justify-center gap-3 active:scale-[0.98] cursor-pointer relative z-10"
+        >
           Book This Tour
           <ArrowRight className="w-5 h-5" />
         </button>
@@ -110,6 +129,8 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
 };
 
 export default function Tours() {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white min-h-screen pb-24">
       {/* Header */}
@@ -171,7 +192,14 @@ export default function Tours() {
             <p className="text-emerald-900/60 text-lg">
               We specialize in creating custom, tailor-made itineraries based on your preferences, budget, and travel style. Let's build your dream trip together.
             </p>
-            <button className="bg-emerald-900 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-95">
+            <button 
+              type="button"
+              onClick={() => {
+                navigate("/contact");
+                window.scrollTo(0, 0);
+              }}
+              className="inline-block bg-emerald-900 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-95 cursor-pointer"
+            >
               Request Custom Itinerary
             </button>
           </div>

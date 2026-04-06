@@ -98,7 +98,7 @@ export default function About() {
             <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl">
               <img 
                 src="https://goceylontravel.com/uploads/about/sigiriya-rock-fortress-guided-tour.jpeg" 
-                alt="Ishan - Professional Tour Guide and Driver" 
+                alt="Ishan - Professional Tour Planner" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -108,7 +108,7 @@ export default function About() {
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Certified Guide</p>
+                <p className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Trusted & Safety Driver</p>
                 <p className="text-lg font-bold text-gray-900">10+ Years Experience</p>
               </div>
             </div>
@@ -123,11 +123,11 @@ export default function About() {
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-emerald-600">
                 <Users className="w-5 h-5" />
-                <span className="text-sm font-bold uppercase tracking-[0.2em]">Meet Your Guide</span>
+                <span className="text-sm font-bold uppercase tracking-[0.2em]">Meet Your Tour Planner</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Hi, I'm <span className="text-emerald-600">Ishan</span></h2>
               <p className="text-gray-600 text-lg leading-relaxed font-light">
-                As your dedicated tour guide and driver, my mission is to show you the true heart of Sri Lanka. With over a decade of experience navigating our beautiful island, I specialize in creating personalized journeys that go beyond the typical tourist paths.
+                As your dedicated tour Planner our mission is to show you the true heart of Sri Lanka. With over a decade of experience navigating our beautiful island, I specialize in creating personalized journeys that go beyond the typical tourist paths.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed font-light">
                 Whether we're climbing the ancient heights of Sigiriya, exploring the misty tea plantations of Ella, or enjoying a peaceful boat safari, I ensure your safety, comfort, and a deep connection with our local culture and heritage.
