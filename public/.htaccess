@@ -2,17 +2,14 @@
   RewriteEngine On
   RewriteBase /
 
-  # Specific rule for SEO files
+  # 1. EXCLUDE SEO FILES FROM REACT ROUTING
+  # This tells the server: "If the file exists, just show it and STOP here"
+  RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^(sitemap\.xml|robots\.txt)$ - [L]
 
+  # 2. STANDARD REACT ROUTING
   RewriteRule ^index\.html$ - [L]
-  
-  # This tells the server: "If the file doesn't exist, use index.html"
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  
-  # ADD THIS LINE to prevent the app from "eating" your XML files
-  RewriteCond %{REQUEST_URI} !^/(sitemap\.xml|robots\.txt)
-  
   RewriteRule . /index.html [L]
 </IfModule>
