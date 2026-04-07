@@ -70,6 +70,15 @@ async function startServer() {
     });
   } else {
     const distPath = path.join(process.cwd(), "dist");
+    
+    // Explicitly serve SEO files
+    app.get("/sitemap.xml", (req, res) => {
+      res.sendFile(path.join(distPath, "sitemap.xml"));
+    });
+    app.get("/robots.txt", (req, res) => {
+      res.sendFile(path.join(distPath, "robots.txt"));
+    });
+
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
