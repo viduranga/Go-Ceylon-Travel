@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { ArrowRight, ShieldCheck, Star, Users, MapPin, Compass, CheckCircle2, Quote, MessageSquare, X, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/src/lib/utils";
@@ -20,6 +21,7 @@ const staggerContainer = {
 };
 
 export default function Home() {
+  const { t } = useTranslation();
   const [isReviewModalOpen, setIsReviewModalOpen] = React.useState(false);
   const [reviews, setReviews] = React.useState<{
     id: number;
@@ -81,29 +83,28 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-sm font-medium mb-4">
               <Star className="w-4 h-4 text-emerald-400 fill-emerald-400" />
-              <span>The #1 Rated Travel Agency in Sri Lanka</span>
+              <span>{t("hero.badge")}</span>
             </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
-              Best <span className="text-emerald-400 italic font-serif">Sri Lanka Tours</span> & <br />
-              Private Tour Planner Services 2026
+              {t("hero.title")}
             </h1>
             <p className="text-lg md:text-xl text-emerald-50/80 max-w-2xl mx-auto font-light leading-relaxed">
-              Experience breathtaking landscapes, ancient heritage, and warm hospitality with Go Ceylon Travel. Your journey to paradise starts here.
+              {t("hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
               <Link
                 to="/tours"
                 className="group bg-emerald-500 text-emerald-950 px-8 py-4 rounded-full text-lg font-bold hover:bg-emerald-400 transition-all shadow-xl shadow-emerald-500/20 flex items-center gap-2 active:scale-95"
               >
-                Explore Tour Packages
+                {t("cta.book")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <a
-                href="#destinations"
+              <Link
+                to="/contact"
                 className="bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all active:scale-95"
               >
-                View Destinations
-              </a>
+                {t("cta.contact")}
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -137,8 +138,8 @@ export default function Home() {
                   <Heart className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-pink-600 uppercase tracking-widest">Romantic Getaway</p>
-                  <p className="text-lg font-bold text-gray-900">Private & Intimate</p>
+                  <p className="text-xs font-bold text-pink-600 uppercase tracking-widest">{t("honeymoon.badge")}</p>
+                  <p className="text-lg font-bold text-gray-900">{t("home.honeymoon_status")}</p>
                 </div>
               </div>
             </div>
@@ -147,14 +148,14 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-emerald-600">
                   <Star className="w-5 h-5 fill-emerald-600" />
-                  <span className="text-sm font-bold uppercase tracking-[0.2em]">Luxury Honeymoon Sri Lanka</span>
+                  <span className="text-sm font-bold uppercase tracking-[0.2em]">{t("honeymoon.badge")}</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                  Experience the Ultimate <br />
-                  <span className="text-emerald-600">Romantic Escape</span>
+                  {t("home.honeymoon_title_1")} <br />
+                  <span className="text-emerald-600">{t("home.honeymoon_title_2")}</span>
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed font-light">
-                  Experience the ultimate romantic escape with Go Ceylon Travel. Our bespoke Sri Lanka honeymoon packages include private luxury transport, intimate candlelit dinners, and breathtaking stays in Ella and the South Coast. Book your dream 2026 honeymoon today.
+                  {t("honeymoon.desc")}
                 </p>
               </div>
 
@@ -164,8 +165,8 @@ export default function Home() {
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">Private & Intimate Tours</h4>
-                    <p className="text-sm text-gray-500">Exclusively for you and your partner.</p>
+                    <h4 className="font-bold text-gray-900">{t("home.honeymoon_feature1_title")}</h4>
+                    <p className="text-sm text-gray-500">{t("honeymoon.feature1_desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -173,8 +174,8 @@ export default function Home() {
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">Luxury Honeymoon Suites</h4>
-                    <p className="text-sm text-gray-500">Handpicked romantic accommodations.</p>
+                    <h4 className="font-bold text-gray-900">{t("home.honeymoon_feature2_title")}</h4>
+                    <p className="text-sm text-gray-500">{t("honeymoon.feature2_desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -182,8 +183,8 @@ export default function Home() {
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">Misty Mountains (Ella)</h4>
-                    <p className="text-sm text-gray-500">Breathtaking views and cool climate.</p>
+                    <h4 className="font-bold text-gray-900">{t("home.honeymoon_feature3_title")}</h4>
+                    <p className="text-sm text-gray-500">{t("honeymoon.feature3_desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -191,8 +192,8 @@ export default function Home() {
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">Golden Beaches (Bentota)</h4>
-                    <p className="text-sm text-gray-500">Sun-kissed shores and private dinners.</p>
+                    <h4 className="font-bold text-gray-900">{t("home.honeymoon_feature4_title")}</h4>
+                    <p className="text-sm text-gray-500">{t("honeymoon.feature4_desc")}</p>
                   </div>
                 </div>
               </div>
@@ -201,7 +202,7 @@ export default function Home() {
                 to="/tours"
                 className="inline-flex items-center gap-2 bg-emerald-900 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-95"
               >
-                View Honeymoon Packages
+                {t("honeymoon.cta")}
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
@@ -213,8 +214,8 @@ export default function Home() {
       <section id="about" className="py-24 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">Why Choose Us</h2>
-            <p className="text-3xl md:text-4xl font-bold text-gray-900">Exceptional Travel Experiences</p>
+            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("why.title")}</h2>
+            <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("why.subtitle")}</p>
             <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
           </div>
 
@@ -228,18 +229,18 @@ export default function Home() {
             {[
               {
                 icon: <ShieldCheck className="w-10 h-10 text-emerald-600" />,
-                title: "Safe & Secure",
-                desc: "Your safety is our priority. We use certified guides and secure transportation for all our tours."
+                title: t("why.feature1_title"),
+                desc: t("why.feature1_desc")
               },
               {
                 icon: <Star className="w-10 h-10 text-emerald-600" />,
-                title: "Premium Service",
-                desc: "From luxury hotels to personalized itineraries, we ensure every detail of your trip is perfect."
+                title: t("why.feature2_title"),
+                desc: t("why.feature2_desc")
               },
               {
                 icon: <Users className="w-10 h-10 text-emerald-600" />,
-                title: "Expert Guides",
-                desc: "Our local guides are passionate experts who bring Sri Lanka's history and culture to life."
+                title: t("why.feature3_title"),
+                desc: t("why.feature3_desc")
               }
             ].map((feature, idx) => (
               <motion.div
@@ -262,8 +263,8 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">Tour Highlights</h2>
-            <p className="text-3xl md:text-4xl font-bold text-gray-900">Experience the Best of Sri Lanka</p>
+            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("highlights.title")}</h2>
+            <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("highlights.subtitle")}</p>
             <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
           </div>
 
@@ -271,33 +272,33 @@ export default function Home() {
             {[
               {
                 url: "https://goceylontravel.com/uploads/about/sigiriya-rock-fortress-guided-tour.jpeg",
-                alt: "Sigiriya Rock Fortress Guided Tour",
-                title: "Sigiriya Rock Fortress Guided Tour"
+                alt: t("about.gallery_sigiriya_alt"),
+                title: t("about.gallery_sigiriya_title")
               },
               {
                 url: "https://goceylontravel.com/uploads/about/sri-lanka-private-guided-tours-c.jpeg",
-                alt: "Nine Arch Bridge Ella Scenic View",
-                title: "Nine Arch Bridge Ella Scenic View"
+                alt: t("about.gallery_ella_nature_alt"),
+                title: t("about.gallery_ella_nature_title")
               },
               {
                 url: "https://goceylontravel.com/uploads/about/ella-railway-station-tour-sri-lanka.jpeg",
-                alt: "Ella Train Tour Experience",
-                title: "Ella Train Tour Experience"
+                alt: t("about.gallery_ella_station_alt"),
+                title: t("about.gallery_ella_station_title")
               },
               {
                 url: "https://goceylontravel.com/uploads/about/kandy-temple-heritage-group-tour.jpeg",
-                alt: "Kandy Temple of the Tooth Cultural Tour",
-                title: "Kandy Temple of the Tooth Cultural Tour"
+                alt: t("about.gallery_kandy_temple_alt"),
+                title: t("about.gallery_kandy_temple_title")
               },
               {
                 url: "https://goceylontravel.com/uploads/about/mirissa-beach-coastal-tour-sri-lanka.jpeg",
-                alt: "Mirissa and Galle Beach Tour",
-                title: "Mirissa and Galle Beach Tour"
+                alt: t("about.gallery_mirissa_beach_alt"),
+                title: t("about.gallery_mirissa_beach_title")
               },
               {
                 url: "https://goceylontravel.com/uploads/about/authentic-tea-plucking-experience.jpeg",
-                alt: "Nuwara Eliya Tea Plantation Experience",
-                title: "Nuwara Eliya Tea Plantation Experience"
+                alt: t("about.gallery_tea_experience_alt"),
+                title: t("about.gallery_tea_experience_title")
               }
             ].map((img, idx) => (
               <motion.div
@@ -330,30 +331,30 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="space-y-4">
-              <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">Featured Destinations</h2>
-              <p className="text-3xl md:text-4xl font-bold text-gray-900">Explore the Pearl of the Indian Ocean</p>
+              <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("destinations.title")}</h2>
+              <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("destinations.subtitle")}</p>
             </div>
             <Link to="/tours" className="text-emerald-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
-              View All Tours <ArrowRight className="w-5 h-5" />
+              {t("destinations.view_all")} <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sigiriya",
+                name: t("destinations.sigiriya.name"),
                 image: "https://goceylontravel.com/uploads/sigiriya-rock-fortress-tour.jpeg",
-                desc: "The ancient rock fortress and UNESCO World Heritage site."
+                desc: t("destinations.sigiriya.description")
               },
               {
-                name: "Ella",
+                name: t("destinations.ella.name"),
                 image: "https://goceylontravel.com/uploads/ella-nine-arch-bridge.jpeg",
-                desc: "A small town in the highlands, famous for the Nine Arches Bridge."
+                desc: t("destinations.ella.description")
               },
               {
-                name: "Galle",
+                name: t("destinations.galle.name"),
                 image: "https://lh3.googleusercontent.com/d/18pjjbA6y3xErTb_rd0Nj4x7UbzcGoJj1",
-                desc: "A historic coastal city known for its Dutch Fort and colonial architecture."
+                desc: t("destinations.galle.description")
               }
             ].map((dest, idx) => (
               <motion.div
@@ -384,7 +385,7 @@ export default function Home() {
                     to="/tours"
                     className="inline-flex items-center gap-2 text-sm font-bold bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-emerald-900 transition-all"
                   >
-                    Explore Tours
+                    {t("home.destinations_explore")}
                   </Link>
                 </div>
               </motion.div>
@@ -397,19 +398,19 @@ export default function Home() {
       <section className="py-24 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">Our Popular Sri Lanka Tour Packages</h2>
-            <p className="text-3xl md:text-4xl font-bold text-gray-900">Customized Itineraries for Every Traveler</p>
+            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("packages.title")}</h2>
+            <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("packages.subtitle")}</p>
             <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Romantic Sri Lanka Getaway", desc: "A luxury honeymoon tour featuring an intimate Ella escape and private beach dinners.", isSpecial: true },
-              { title: "Short Sri Lanka Tour", desc: "A quick escape to Kandy and Sigiriya, perfect for a 3-day cultural introduction." },
-              { title: "Cultural Heart of Sri Lanka", desc: "A 5-day itinerary through heritage sites and Nuwara Eliya tea plantations." },
-              { title: "Best of Sri Lanka in 1 Week", desc: "Our most popular 7-day tour from Sigiriya to Galle with a Yala safari." },
-              { title: "10-Day Grand Private Tour", desc: "Explore ancient cities and enjoy Mirissa whale watching in total comfort." },
-              { title: "Full Island Discovery", desc: "A comprehensive 14-day tour uncovering hidden gems from North to South." }
+              { title: t("tours.tour0.title"), desc: t("tours.tour0.description"), isSpecial: true },
+              { title: t("tours.tour1.title"), desc: t("tours.tour1.description") },
+              { title: t("tours.tour2.title"), desc: t("tours.tour2.description") },
+              { title: t("tours.tour3.title"), desc: t("tours.tour3.description") },
+              { title: t("tours.tour4.title"), desc: t("tours.tour4.description") },
+              { title: t("tours.tour5.title"), desc: t("tours.tour5.description") }
             ].map((pkg, idx) => (
               <motion.div
                 key={idx}
@@ -423,13 +424,13 @@ export default function Home() {
               >
                 {pkg.isSpecial && (
                   <span className="absolute -top-3 -right-3 bg-emerald-500 text-emerald-950 text-[10px] font-bold px-3 py-1 rounded-full shadow-lg border border-emerald-400">
-                    SPECIAL OFFER
+                    {t("home.packages_special")}
                   </span>
                 )}
-                <h3 className="text-xl font-bold text-emerald-900 mb-3">{pkg.title}</h3>
-                <p className="text-gray-600 text-sm mb-6">{pkg.desc}</p>
+                <h3 className="text-xl font-bold text-emerald-900 mb-3 line-clamp-1">{pkg.title}</h3>
+                <p className="text-gray-600 text-sm mb-6 line-clamp-3">{pkg.desc}</p>
                 <Link to="/tours" className="text-emerald-600 font-bold text-sm flex items-center gap-2">
-                  View Details <ArrowRight className="w-4 h-4" />
+                  {t("home.packages_details")} <ArrowRight className="w-4 h-4" />
                 </Link>
               </motion.div>
             ))}
@@ -442,8 +443,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="space-y-4">
-              <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">Testimonials</h2>
-              <p className="text-3xl md:text-4xl font-bold text-gray-900">What Our Travelers Say</p>
+              <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("testimonials.title")}</h2>
+              <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("testimonials.subtitle")}</p>
             </div>
             <button 
               type="button"
@@ -454,7 +455,7 @@ export default function Home() {
               className="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/20 active:scale-95 relative z-10"
             >
               <MessageSquare className="w-5 h-5" />
-              Write a Review
+              {t("testimonials.write")}
             </button>
           </div>
 
@@ -495,7 +496,7 @@ export default function Home() {
               ))
             ) : (
               <div className="col-span-1 md:col-span-3 text-center py-12">
-                <p className="text-emerald-900/40 font-medium">No reviews yet. Be the first to share your experience!</p>
+                <p className="text-emerald-900/40 font-medium">{t("testimonials.no_reviews")}</p>
               </div>
             )}
           </div>
@@ -527,35 +528,35 @@ export default function Home() {
               </button>
 
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Write a Review</h3>
-                <p className="text-gray-500 text-sm">Share your experience with Go Ceylon Travel.</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t("home.review_modal_title")}</h3>
+                <p className="text-gray-500 text-sm">{t("home.review_modal_subtitle")}</p>
               </div>
 
               <form onSubmit={handleReviewSubmit} className="space-y-5">
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-700 ml-1">Full Name</label>
+                  <label className="text-sm font-bold text-gray-700 ml-1">{t("home.review_modal_name")}</label>
                   <input
                     required
                     type="text"
                     value={newReview.name}
                     onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-                    placeholder="Your Name"
+                    placeholder={t("home.review_modal_name_placeholder")}
                     className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-700 ml-1">Location</label>
+                  <label className="text-sm font-bold text-gray-700 ml-1">{t("home.review_modal_location")}</label>
                   <input
                     required
                     type="text"
                     value={newReview.location}
                     onChange={(e) => setNewReview({ ...newReview, location: e.target.value })}
-                    placeholder="e.g. London, UK"
+                    placeholder={t("home.review_modal_location_placeholder")}
                     className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-700 ml-1">Rating</label>
+                  <label className="text-sm font-bold text-gray-700 ml-1">{t("home.review_modal_rating")}</label>
                   <div className="flex gap-2">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button
@@ -575,13 +576,13 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-700 ml-1">Your Review</label>
+                  <label className="text-sm font-bold text-gray-700 ml-1">{t("home.review_modal_comment")}</label>
                   <textarea
                     required
                     rows={4}
                     value={newReview.comment}
                     onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
-                    placeholder="How was your trip?"
+                    placeholder={t("home.review_modal_comment_placeholder")}
                     className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all resize-none"
                   />
                 </div>
@@ -589,7 +590,7 @@ export default function Home() {
                   type="submit"
                   className="w-full bg-emerald-900 text-white py-5 rounded-2xl font-bold text-lg hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-[0.98] mt-4"
                 >
-                  Submit Review
+                  {t("home.review_modal_submit")}
                 </button>
               </form>
             </motion.div>
@@ -610,38 +611,38 @@ export default function Home() {
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Ready to Start Your <br />
-              <span className="text-emerald-400">Sri Lankan Adventure?</span>
+              {t("home.cta_title_1")} <br />
+              <span className="text-emerald-400">{t("home.cta_title_2")}</span>
             </h2>
             <p className="text-emerald-100/70 text-lg">
-              Book your tour today and get a 10% discount on your first booking. Our team is ready to help you plan the perfect escape.
+              {t("cta_section.desc")}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/tours"
                 className="bg-emerald-400 text-emerald-950 px-10 py-4 rounded-full text-lg font-bold hover:bg-emerald-300 transition-all shadow-xl shadow-emerald-400/20 active:scale-95"
               >
-                Browse All Packages
+                {t("cta_section.browse")}
               </Link>
               <Link
                 to="/contact"
                 className="bg-transparent border-2 border-emerald-400/30 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-emerald-400/10 transition-all active:scale-95"
               >
-                Contact Support
+                {t("cta_section.support")}
               </Link>
             </div>
             <div className="flex items-center justify-center gap-8 pt-8 text-emerald-100/40">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                <span className="text-sm">24/7 Support</span>
+                <span className="text-sm">{t("cta_section.feature1")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                <span className="text-sm">Best Price Guarantee</span>
+                <span className="text-sm">{t("cta_section.feature2")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                <span className="text-sm">Flexible Booking</span>
+                <span className="text-sm">{t("cta_section.feature3")}</span>
               </div>
             </div>
           </motion.div>

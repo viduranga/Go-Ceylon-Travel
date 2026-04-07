@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { toursData, TourPlan } from "@/src/data/tours";
 import { Calendar, MapPin, Clock, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -7,6 +8,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { cn } from "@/src/lib/utils";
 
 function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = React.useState(false);
   const navigate = useNavigate();
 
@@ -42,10 +44,10 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
               ? "bg-emerald-500 text-emerald-950 border-emerald-400" 
               : "bg-emerald-900/90 text-emerald-50 border-emerald-700/50"
           )}>
-            {tour.subtitle}
+            {t(tour.subtitle)}
           </span>
           <span className="bg-white/90 backdrop-blur-md text-emerald-900 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-emerald-100 shadow-sm">
-            {tour.duration}
+            {t(tour.duration)}
           </span>
         </div>
       </div>
@@ -54,7 +56,7 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
       <div className="p-8 flex flex-col flex-grow">
         <div className="mb-6">
           <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors">
-            {tour.title}
+            {t(tour.title)}
           </h3>
           <div className="flex items-start gap-2 text-emerald-600/80">
             <MapPin className="w-4 h-4 mt-1 shrink-0" />
@@ -65,7 +67,7 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
         {tour.description && (
           <div className="mb-8">
             <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
-              {tour.description}
+              {t(tour.description)}
             </p>
           </div>
         )}
@@ -73,12 +75,12 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
         {/* Itinerary Preview/Full */}
         <div className="space-y-4 mb-8 flex-grow">
           <div className="flex items-center justify-between">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400">Tour Highlights</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400">{t("tours.highlights")}</h4>
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="text-emerald-600 text-xs font-bold flex items-center gap-1 hover:underline"
             >
-              {isExpanded ? "Show Less" : "View Full Itinerary"}
+              {isExpanded ? t("tours.show_less") : t("tours.view_full")}
               {isExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
             </button>
           </div>
@@ -129,7 +131,7 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
           onClick={handleBookNow}
           className="w-full bg-emerald-900 text-white py-4 rounded-2xl font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/10 flex items-center justify-center gap-3 active:scale-[0.98] cursor-pointer relative z-10"
         >
-          Book This Tour
+          {t("tours.book_now")}
           <ArrowRight className="w-5 h-5" />
         </button>
       </div>
@@ -138,6 +140,7 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
 };
 
 export default function Tours() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
@@ -164,23 +167,23 @@ export default function Tours() {
             className="space-y-6"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-              Curated <span className="text-emerald-400">Tour Packages</span>
+              {t("tours.hero_title_1")} <span className="text-emerald-400">{t("tours.hero_title_2")}</span>
             </h1>
             <p className="text-emerald-100/60 text-lg max-w-2xl mx-auto font-light">
-              Choose from our most popular itineraries designed to give you the ultimate Sri Lankan experience. From quick escapes to grand adventures.
+              {t("tours.hero_subtitle")}
             </p>
             <div className="flex items-center justify-center gap-6 pt-4">
               <div className="flex items-center gap-2 text-emerald-400/80 text-sm">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>Expert Local Guides</span>
+                <span>{t("tours.feature_guides")}</span>
               </div>
               <div className="flex items-center gap-2 text-emerald-400/80 text-sm">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>Luxury Transport</span>
+                <span>{t("tours.feature_transport")}</span>
               </div>
               <div className="flex items-center gap-2 text-emerald-400/80 text-sm">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>Handpicked Hotels</span>
+                <span>{t("tours.feature_hotels")}</span>
               </div>
             </div>
           </motion.div>
@@ -201,10 +204,10 @@ export default function Tours() {
         <div className="bg-emerald-50 rounded-[3rem] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12 border border-emerald-100">
           <div className="space-y-6 text-center md:text-left max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold text-emerald-950 leading-tight">
-              Don't see what you're looking for?
+              {t("tours.custom_title")}
             </h2>
             <p className="text-emerald-900/60 text-lg">
-              We specialize in creating custom, tailor-made itineraries based on your preferences, budget, and travel style. Let's build your dream trip together.
+              {t("tours.custom_desc")}
             </p>
             <button 
               type="button"
@@ -214,7 +217,7 @@ export default function Tours() {
               }}
               className="inline-block bg-emerald-900 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-95 cursor-pointer"
             >
-              Request Custom Itinerary
+              {t("tours.custom_cta")}
             </button>
           </div>
           <div className="relative">

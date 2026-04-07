@@ -1,26 +1,29 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { Compass, MapPin, Phone, Mail, Facebook, Instagram, Twitter, Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/src/lib/utils";
 import { motion, AnimatePresence } from "motion/react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
 
   const canonicalUrl = `https://goceylontravel.com${location.pathname === "/" ? "" : location.pathname}`;
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Tours", path: "/tours" },
-    { name: "Destinations", path: "/destinations" },
-    { name: "About Us", path: "/about" },
-    { name: "Contact", path: "/contact" },
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.tours"), path: "/tours" },
+    { name: t("nav.destinations"), path: "/destinations" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
   return (
@@ -44,7 +47,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
-                key={link.name}
+                key={link.path}
                 to={link.path}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-emerald-600",
@@ -54,21 +57,25 @@ export default function Layout({ children }: LayoutProps) {
                 {link.name}
               </Link>
             ))}
+            <LanguageSwitcher />
             <Link
               to="/tours"
               className="bg-emerald-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-emerald-800 transition-all shadow-lg shadow-emerald-900/20 active:scale-95"
             >
-              Book a Tour
+              {t("cta.book")}
             </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 text-gray-600"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <LanguageSwitcher />
+            <button
+              className="p-2 text-gray-600"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </nav>
 
         {/* Mobile Nav */}
@@ -97,7 +104,7 @@ export default function Layout({ children }: LayoutProps) {
                     onClick={() => setIsMenuOpen(false)}
                     className="block w-full text-center bg-emerald-900 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-emerald-900/20"
                   >
-                    Book a Tour
+                    {t("cta.book")}
                   </Link>
                 </div>
               </div>
@@ -191,7 +198,7 @@ export default function Layout({ children }: LayoutProps) {
           </div>
 
           <div className="pt-10 border-t border-emerald-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-emerald-200/50">
-            <p>© 2026 Go Ceylon Travel. All rights reserved.</p>
+            <p>© 2026 Go Ceylon Travel. {t("footer.rights")}</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-emerald-400 transition-colors">Terms of Service</a>

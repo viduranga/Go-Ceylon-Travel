@@ -2,66 +2,70 @@ import React from "react";
 import { motion } from "motion/react";
 import { Helmet } from "react-helmet-async";
 import { ShieldCheck, Star, Users, MapPin, Compass, Heart, Award, Camera } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const galleryImages = [
   {
     url: "https://goceylontravel.com/uploads/about/sigiriya-rock-fortress-guided-tour.jpeg",
-    alt: "Professional guided tour of the Sigiriya Rock Fortress, a UNESCO World Heritage site.",
-    title: "Sigiriya Rock Fortress"
+    altKey: "about.gallery_sigiriya_alt",
+    titleKey: "about.gallery_sigiriya_title"
   },
   {
     url: "https://goceylontravel.com/uploads/about/ella-mountain-river-nature-tour.jpeg",
-    alt: "Tourists enjoying natural mountain streams and river views in Ella, Sri Lanka.",
-    title: "Ella Nature"
+    altKey: "about.gallery_ella_nature_alt",
+    titleKey: "about.gallery_ella_nature_title"
   },
   {
     url: "https://goceylontravel.com/uploads/about/family-tea-plantation-tour-ella.jpeg",
-    alt: "A family exploring the lush green tea estates of Ella and Nuwara Eliya with a private guide.",
-    title: "Tea Plantation"
+    altKey: "about.gallery_tea_plantation_alt",
+    titleKey: "about.gallery_tea_plantation_title"
   },
   {
     url: "https://goceylontravel.com/uploads/about/kandy-temple-heritage-group-tour.jpeg",
-    alt: "Cultural heritage group tour at a sacred Buddhist temple in Kandy, Sri Lanka.",
-    title: "Kandy Temple"
+    altKey: "about.gallery_kandy_temple_alt",
+    titleKey: "about.gallery_kandy_temple_title"
   },
   {
     url: "https://goceylontravel.com/uploads/about/mirissa-beach-coastal-tour-sri-lanka.jpeg",
-    alt: "Tourists enjoying the tropical South Coast beaches in Mirissa during a Go Ceylon Travel tour.",
-    title: "Mirissa Beach"
+    altKey: "about.gallery_mirissa_beach_alt",
+    titleKey: "about.gallery_mirissa_beach_title"
   },
   {
     url: "https://goceylontravel.com/uploads/about/sri-lanka-lake-boat-safari-adventure.jpeg",
-    alt: "Adventure travelers enjoying a traditional lake boat safari experience in Sri Lanka.",
-    title: "Boat Safari"
+    altKey: "about.gallery_boat_safari_alt",
+    titleKey: "about.gallery_boat_safari_title"
   },
   {
     url: "https://goceylontravel.com/uploads/about/sri-lanka-spiritual-yoga-retreat.jpeg",
-    alt: "Spiritual yoga and meditation retreat for a group of travelers at a Sri Lankan temple.",
-    title: "Yoga Retreat"
+    altKey: "about.gallery_yoga_retreat_alt",
+    titleKey: "about.gallery_yoga_retreat_title"
   },
   {
     url: "https://goceylontravel.com/uploads/about/authentic-tea-plucking-experience.jpeg",
-    alt: "Authentic tea plucking experience with local workers in the Sri Lankan highlands.",
-    title: "Tea Experience"
+    altKey: "about.gallery_tea_experience_alt",
+    titleKey: "about.gallery_tea_experience_title"
   },
   {
     url: "https://goceylontravel.com/uploads/about/ella-railway-station-tour-sri-lanka.jpeg",
-    alt: "Travelers at the historic Ella Railway Station during a scenic Sri Lanka hill country tour.",
-    title: "Ella Station"
+    altKey: "about.gallery_ella_station_alt",
+    titleKey: "about.gallery_ella_station_title"
   },
   {
     url: "https://goceylontravel.com/uploads/about/independence-square-colombo-tour.jpeg",
-    alt: "Guided city tour at Independence Square in Colombo for international travelers.",
-    title: "Colombo City"
+    altKey: "about.gallery_colombo_city_alt",
+    titleKey: "about.gallery_colombo_city_title"
   }
 ];
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-white min-h-screen">
       <Helmet>
-        <title>About Us | Go Ceylon Travel - Your Sri Lanka Tour Planner</title>
-        <meta name="description" content="Learn more about Go Ceylon Travel, our mission to showcase the true heart of Sri Lanka, and our team of expert tour planners with over a decade of experience." />
+        <title>{t("about.hero_title")} | Go Ceylon Travel</title>
+        <meta name="description" content={t("about.hero_subtitle")} />
         <link rel="canonical" href="https://goceylontravel.com/about" />
       </Helmet>
       {/* Hero Section */}
@@ -82,10 +86,10 @@ export default function About() {
             className="space-y-4"
           >
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
-              Our <span className="text-emerald-400">Story</span>
+              {t("about.hero_title")}
             </h1>
             <p className="text-lg md:text-xl text-emerald-50/80 max-w-2xl mx-auto font-light">
-              Dedicated to providing authentic, safe, and unforgettable Sri Lankan adventures since our inception.
+              {t("about.hero_subtitle")}
             </p>
           </motion.div>
         </div>
@@ -114,8 +118,8 @@ export default function About() {
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Trusted & Safety Driver</p>
-                <p className="text-lg font-bold text-gray-900">10+ Years Experience</p>
+                <p className="text-xs font-bold text-emerald-600 uppercase tracking-widest">{t("about.trusted_badge")}</p>
+                <p className="text-lg font-bold text-gray-900">{t("about.experience_badge")}</p>
               </div>
             </div>
           </motion.div>
@@ -129,14 +133,14 @@ export default function About() {
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-emerald-600">
                 <Users className="w-5 h-5" />
-                <span className="text-sm font-bold uppercase tracking-[0.2em]">Meet Your Tour Planner</span>
+                <span className="text-sm font-bold uppercase tracking-[0.2em]">{t("about.meet_title")}</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Hi, I'm <span className="text-emerald-600">Ishan</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">{t("about.meet_name")}</h2>
               <p className="text-gray-600 text-lg leading-relaxed font-light">
-                As your dedicated tour Planner our mission is to show you the true heart of Sri Lanka. With over a decade of experience navigating our beautiful island, I specialize in creating personalized journeys that go beyond the typical tourist paths.
+                {t("about.meet_desc1")}
               </p>
               <p className="text-gray-600 text-lg leading-relaxed font-light">
-                Whether we're climbing the ancient heights of Sigiriya, exploring the misty tea plantations of Ella, or enjoying a peaceful boat safari, I ensure your safety, comfort, and a deep connection with our local culture and heritage.
+                {t("about.meet_desc2")}
               </p>
             </div>
 
@@ -144,16 +148,16 @@ export default function About() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-emerald-600">
                   <Heart className="w-4 h-4" />
-                  <span className="font-bold">Personalized</span>
+                  <span className="font-bold">{t("about.personalized")}</span>
                 </div>
-                <p className="text-sm text-gray-500">Tailored itineraries to match your interests.</p>
+                <p className="text-sm text-gray-500">{t("about.personalized_desc")}</p>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-emerald-600">
                   <ShieldCheck className="w-4 h-4" />
-                  <span className="font-bold">Safe Travel</span>
+                  <span className="font-bold">{t("about.safe")}</span>
                 </div>
-                <p className="text-sm text-gray-500">Professional driving and secure routes.</p>
+                <p className="text-sm text-gray-500">{t("about.safe_desc")}</p>
               </div>
             </div>
           </motion.div>
@@ -164,8 +168,8 @@ export default function About() {
       <section className="py-24 bg-emerald-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">Our Journey Together</h2>
-            <p className="text-3xl md:text-4xl font-bold text-gray-900">Memories from the Road</p>
+            <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("about.journey_title")}</h2>
+            <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("about.journey_subtitle")}</p>
             <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
           </div>
 
@@ -181,15 +185,15 @@ export default function About() {
               >
                 <img 
                   src={img.url} 
-                  alt={img.alt} 
-                  title={img.title}
+                  alt={t(img.altKey)} 
+                  title={t(img.titleKey)}
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <div className="text-white">
-                    <p className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-1">{img.title}</p>
-                    <p className="text-sm font-light leading-snug">{img.alt}</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-1">{t(img.titleKey)}</p>
+                    <p className="text-sm font-light leading-snug">{t(img.altKey)}</p>
                   </div>
                 </div>
               </motion.div>
@@ -206,22 +210,22 @@ export default function About() {
               <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mx-auto">
                 <Star className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Quality Service</h3>
-              <p className="text-gray-500 font-light">We never compromise on the quality of your experience, from transport to accommodation.</p>
+              <h3 className="text-xl font-bold text-gray-900">{t("about.quality_title")}</h3>
+              <p className="text-gray-500 font-light">{t("about.quality_desc")}</p>
             </div>
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mx-auto">
                 <Compass className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Authentic Discovery</h3>
-              <p className="text-gray-500 font-light">Discover the hidden gems and local secrets that only a native guide can show you.</p>
+              <h3 className="text-xl font-bold text-gray-900">{t("about.authentic_title")}</h3>
+              <p className="text-gray-500 font-light">{t("about.authentic_desc")}</p>
             </div>
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mx-auto">
                 <MapPin className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Local Impact</h3>
-              <p className="text-gray-500 font-light">We support local communities and promote sustainable tourism across the island.</p>
+              <h3 className="text-xl font-bold text-gray-900">{t("about.impact_title")}</h3>
+              <p className="text-gray-500 font-light">{t("about.impact_desc")}</p>
             </div>
           </div>
         </div>
@@ -230,27 +234,23 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-24 bg-emerald-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <h2 className="text-3xl md:text-5xl font-bold">Ready to explore Sri Lanka with Ishan?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold">{t("about.cta_title")}</h2>
           <p className="text-emerald-100/70 text-lg font-light">
-            Contact us today to start planning your custom itinerary and experience the magic of our island home.
+            {t("about.cta_desc")}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <Link
+              to="/contact"
               className="bg-emerald-500 text-emerald-950 px-10 py-4 rounded-full font-bold shadow-xl shadow-emerald-500/20"
             >
-              Contact Ishan
-            </motion.a>
-            <motion.a
-              href="/tours"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              {t("about.cta_contact")}
+            </Link>
+            <Link
+              to="/tours"
               className="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-full font-bold"
             >
-              View All Tours
-            </motion.a>
+              {t("cta_section.browse")}
+            </Link>
           </div>
         </div>
       </section>

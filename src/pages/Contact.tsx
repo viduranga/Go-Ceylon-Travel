@@ -3,8 +3,10 @@ import { Helmet } from "react-helmet-async";
 import { Mail, Phone, MapPin, Send, Clock, MessageSquare, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
 import { cn } from "@/src/lib/utils";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [formStatus, setFormStatus] = React.useState<"idle" | "sending" | "sent">("idle");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -41,10 +43,10 @@ export default function Contact() {
             className="space-y-6"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-              Get in <span className="text-emerald-400">Touch</span>
+              {t("contact.hero_title")}
             </h1>
             <p className="text-emerald-100/60 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-              Have questions about our tours or want a custom itinerary? We're here to help you plan your perfect Sri Lankan adventure.
+              {t("contact.hero_subtitle")}
             </p>
           </motion.div>
         </div>
@@ -58,31 +60,31 @@ export default function Contact() {
             {[
               {
                 icon: <MessageCircle className="w-6 h-6" />,
-                title: "WhatsApp",
-                value: "Chat with us",
-                sub: "Fastest response time",
+                title: t("contact.whatsapp_title"),
+                value: t("contact.whatsapp_value"),
+                sub: t("contact.whatsapp_sub"),
                 link: "https://wa.me/message/TN4V2SLCNKHMI1",
                 color: "bg-[#25D366] text-white"
               },
               {
                 icon: <Phone className="w-6 h-6" />,
-                title: "Call Us",
+                title: t("contact.call_title"),
                 value: "+94 76 313 1069",
-                sub: "Mon-Sun, 24/7 Support",
+                sub: t("contact.call_sub"),
                 link: "tel:+94763131069"
               },
               {
                 icon: <Mail className="w-6 h-6" />,
-                title: "Email Us",
+                title: t("contact.email_title"),
                 value: "goceylontravel111@gmail.com",
-                sub: "We'll respond within 24 hours",
+                sub: t("contact.email_sub"),
                 link: "mailto:goceylontravel111@gmail.com"
               },
               {
                 icon: <MapPin className="w-6 h-6" />,
-                title: "Visit Us",
+                title: t("contact.visit_title"),
                 value: "Panagamuwa, Wanchawala, Galle, Sri lanka.",
-                sub: "Our main office location",
+                sub: t("contact.visit_sub"),
                 link: "https://maps.google.com/?q=Panagamuwa,Wanchawala,Galle,Sri+lanka"
               }
             ].map((item, idx) => (
@@ -110,24 +112,24 @@ export default function Contact() {
             <div className="bg-emerald-900 p-8 rounded-[2rem] text-white space-y-6">
               <div className="flex items-center gap-3">
                 <Clock className="w-6 h-6 text-emerald-400" />
-                <h3 className="text-xl font-bold">Business Hours</h3>
+                <h3 className="text-xl font-bold">{t("contact.hours_title")}</h3>
               </div>
               <div className="space-y-3 text-emerald-100/70 text-sm">
                 <div className="flex justify-between border-b border-emerald-800 pb-2">
-                  <span>Monday - Friday</span>
+                  <span>{t("contact.monday_friday")}</span>
                   <span className="text-white font-medium">8:00 AM - 8:00 PM</span>
                 </div>
                 <div className="flex justify-between border-b border-emerald-800 pb-2">
-                  <span>Saturday</span>
+                  <span>{t("contact.saturday")}</span>
                   <span className="text-white font-medium">9:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Sunday</span>
+                  <span>{t("contact.sunday")}</span>
                   <span className="text-white font-medium">10:00 AM - 4:00 PM</span>
                 </div>
               </div>
               <p className="text-xs text-emerald-400 font-medium italic">
-                * Emergency support available 24/7 for active travelers.
+                {t("contact.hours_emergency")}
               </p>
             </div>
           </div>
@@ -141,26 +143,26 @@ export default function Contact() {
             >
               <div className="flex items-center gap-3 mb-8">
                 <MessageSquare className="w-8 h-8 text-emerald-600" />
-                <h2 className="text-3xl font-bold text-gray-900">Send us a Message</h2>
+                <h2 className="text-3xl font-bold text-gray-900">{t("contact.form_title")}</h2>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-700 ml-1">Full Name</label>
+                    <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.full_name")}</label>
                     <input
                       required
                       type="text"
-                      placeholder="John Doe"
+                      placeholder={t("contact.name_placeholder")}
                       className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-700 ml-1">Email Address</label>
+                    <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.email")}</label>
                     <input
                       required
                       type="email"
-                      placeholder="john@example.com"
+                      placeholder={t("contact.email_placeholder")}
                       className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
                     />
                   </div>
@@ -168,7 +170,7 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-700 ml-1">Phone Number</label>
+                    <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.phone")}</label>
                     <input
                       type="tel"
                       placeholder="+94 7X XXX XXXX"
@@ -176,22 +178,22 @@ export default function Contact() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-700 ml-1">Subject</label>
+                    <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.subject")}</label>
                     <select className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all appearance-none">
-                      <option>General Inquiry</option>
-                      <option>Tour Booking</option>
-                      <option>Custom Itinerary</option>
-                      <option>Feedback</option>
+                      <option>{t("contact.subject_general")}</option>
+                      <option>{t("contact.subject_booking")}</option>
+                      <option>{t("contact.subject_custom")}</option>
+                      <option>{t("contact.subject_feedback")}</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-700 ml-1">Your Message</label>
+                  <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.message")}</label>
                   <textarea
                     required
                     rows={6}
-                    placeholder="Tell us about your travel plans..."
+                    placeholder={t("contact.message_placeholder")}
                     className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all resize-none"
                   ></textarea>
                 </div>
@@ -208,14 +210,14 @@ export default function Contact() {
                 >
                   {formStatus === "idle" && (
                     <>
-                      Send Message
+                      {t("contact.send")}
                       <Send className="w-5 h-5" />
                     </>
                   )}
                   {formStatus === "sending" && (
                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   )}
-                  {formStatus === "sent" && "Message Sent Successfully!"}
+                  {formStatus === "sent" && t("contact.sent")}
                 </button>
               </form>
             </motion.div>
