@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Compass, MapPin, Phone, Mail, Facebook, Instagram, Twitter, Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/src/lib/utils";
 import { motion, AnimatePresence } from "motion/react";
@@ -12,6 +13,8 @@ export default function Layout({ children }: LayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const location = useLocation();
 
+  const canonicalUrl = `https://goceylontravel.com${location.pathname === "/" ? "" : location.pathname}`;
+
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Tours", path: "/tours" },
@@ -22,6 +25,9 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col bg-white font-sans">
+      <Helmet>
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
       {/* Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
