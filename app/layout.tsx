@@ -17,14 +17,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Best Sri Lanka Tour Packages | Go Ceylon Travel",
-  description: "Experience the heart of Sri Lanka with Go Ceylon Travel. We offer 100% customizable 2026 tour packages with professional private drivers. From Sigiriya’s heights to Ella’s tea hills—plan your perfect island getaway today!",
+  title: "Go Ceylon Travel | Best Sri Lanka Tours & Private Tour Planner 2026",
+  description: "Experience breathtaking landscapes, ancient heritage, and warm hospitality with Go Ceylon Travel. Your journey to paradise starts here.",
   keywords: ["Sri Lanka tours", "private tour planner Sri Lanka", "best travel agency Sri Lanka", "Sri Lanka holiday packages 2026", "private driver Sri Lanka"],
   openGraph: {
     type: "website",
     url: "https://goceylontravel.com/",
-    title: "Best Sri Lanka Tour Packages | Go Ceylon Travel",
-    description: "Experience the heart of Sri Lanka with Go Ceylon Travel. We offer 100% customizable 2026 tour packages with professional private drivers. From Sigiriya’s heights to Ella’s tea hills—plan your perfect island getaway today!",
+    title: "Go Ceylon Travel | Best Sri Lanka Tours & Private Tour Planner 2026",
+    description: "Experience breathtaking landscapes, ancient heritage, and warm hospitality with Go Ceylon Travel. Your journey to paradise starts here.",
     images: [
       {
         url: "https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg",
