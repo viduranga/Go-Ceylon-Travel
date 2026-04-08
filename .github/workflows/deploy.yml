@@ -1,31 +1,43 @@
-name: Build and Deploy
+name: Deploy to Bluehost
+
 on:
   push:
     branches:
-      - main
+      - main # Change this to your default branch name if different
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🏗️ Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
+      - name: 📦 Install dependencies
+        run: npm install
 
-      - name: Sync to Bluehost
+      - name: 🚀 Build Project
+        run: npm run build
+
+      - name: 📂 Sync files to Bluehost
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: nvk.mtr.mybluehost.me
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: public_html/website_762482e9/
+          # The local folder to upload. 
+          # For Next.js standalone, we usually want to sync the whole project 
+          # or the .next/standalone folder depending on your Bluehost setup.
+          # By default, this will sync the entire repository.
+          local-dir: ./
+          # The remote folder on Bluehost (e.g., public_html/my-app)
+          server-dir: public_html/ # Update this to your specific folder path
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
