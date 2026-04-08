@@ -19,9 +19,15 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^(sitemap\.xml|robots\.txt)$ - [L]
 
-  # 2. NEXT.JS ROUTING (Let Node.js handle the requests)
-  # If you are using the cPanel Node.js Selector, it usually handles this.
-  # We remove the index.html requirement which causes 403 errors.
+  # 2. STATIC EXPORT ROUTING
+  # Handle clean URLs (remove .html from URL)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # Handle 404 errors by showing the 404.html page
+  ErrorDocument 404 /404.html
 </IfModule>
 
 # Caching

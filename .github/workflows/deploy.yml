@@ -31,11 +31,9 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           # The local folder to upload. 
-          # For Next.js standalone, we usually want to sync the whole project 
-          # or the .next/standalone folder depending on your Bluehost setup.
-          # By default, this will sync the entire repository.
-          local-dir: ./
-          # The remote folder on Bluehost (e.g., public_html/my-app)
+          # For static export, we upload the 'out' folder created by 'npm run build'
+          local-dir: ./out/
+          # The remote folder on Bluehost
           server-dir: public_html/website_762482e9/
           exclude: |
             **/.git*
