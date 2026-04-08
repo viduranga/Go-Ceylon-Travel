@@ -18,9 +18,12 @@ export default function Contact() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch("https://formspree.io/f/xpwzzpww", {
+      const response = await fetch("https://formsubmit.co/ajax/goceylontravel111@gmail.com", {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          _subject: `New Contact Form Message: ${data.subject || 'General Inquiry'}`
+        }),
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -32,12 +35,13 @@ export default function Contact() {
         (e.target as HTMLFormElement).reset();
         setTimeout(() => setFormStatus("idle"), 5000);
       } else {
-        throw new Error("Form submission failed");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Form submission failed");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
       setFormStatus("idle");
-      alert("There was an error sending your message. Please try again or contact us via WhatsApp.");
+      alert("There was an error sending your message. Please try again or contact us via WhatsApp. Error: " + (error instanceof Error ? error.message : "Unknown error"));
     }
   };
 

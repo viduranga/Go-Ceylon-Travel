@@ -46,11 +46,12 @@ export default function Home() {
     
     // Send email notification
     try {
-      await fetch("https://formspree.io/f/xpwzzpww", {
+      await fetch("https://formsubmit.co/ajax/goceylontravel111@gmail.com", {
         method: "POST",
         body: JSON.stringify({
           ...newReview,
-          type: "New Website Review"
+          type: "New Website Review",
+          _subject: `New Review from ${newReview.name}`
         }),
         headers: {
           'Accept': 'application/json',

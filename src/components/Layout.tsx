@@ -194,9 +194,13 @@ export default function Layout({ children }: LayoutProps) {
                   const email = (form.elements.namedItem("email") as HTMLInputElement).value;
                   
                   try {
-                    const response = await fetch("https://formspree.io/f/xpwzzpww", {
+                    const response = await fetch("https://formsubmit.co/ajax/goceylontravel111@gmail.com", {
                       method: "POST",
-                      body: JSON.stringify({ email, type: "Newsletter Subscription" }),
+                      body: JSON.stringify({ 
+                        email, 
+                        type: "Newsletter Subscription",
+                        _subject: "New Newsletter Subscription"
+                      }),
                       headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
