@@ -36,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center group">
             <img 
-              src="https://lh3.googleusercontent.com/d/1Y1eVyMBKPd2qGRXvAWbPK-_Jh7gnIvIu" 
+              src="https://goceylontravel.com/uploads/Go-Ceylon-Logo.png" 
               alt="Go Ceylon Travel Logo" 
               className="h-14 w-auto object-contain"
               referrerPolicy="no-referrer"
@@ -126,7 +126,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="space-y-6">
               <Link to="/" className="flex items-center">
                 <img 
-                  src="https://lh3.googleusercontent.com/d/1Y1eVyMBKPd2qGRXvAWbPK-_Jh7gnIvIu" 
+                  src="https://goceylontravel.com/uploads/Go-Ceylon-Logo.png" 
                   alt="Go Ceylon Travel Logo" 
                   className="h-14 w-auto object-contain brightness-0 invert"
                   referrerPolicy="no-referrer"
