@@ -54,8 +54,8 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <Helmet>
-        <title>Go Ceylon Travel | Best Sri Lanka Tours & Private Tour Planner 2026</title>
-        <meta name="description" content="Experience the heart of Sri Lanka with Go Ceylon Travel. We offer 100% customizable 2026 tour packages with professional private drivers. From Sigiriya’s heights to Ella’s tea hills—plan your perfect island getaway today!" />
+        <title>{t("meta.home_title")}</title>
+        <meta name="description" content={t("meta.home_description")} />
         <meta name="keywords" content="Sri Lanka tours, private tour planner Sri Lanka, best travel agency Sri Lanka, Sri Lanka holiday packages 2026, private driver Sri Lanka" />
         <link rel="canonical" href="https://goceylontravel.com/" />
       </Helmet>
