@@ -41,8 +41,26 @@ export default function Home() {
     comment: ""
   });
 
-  const handleReviewSubmit = (e: React.FormEvent) => {
+  const handleReviewSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Send email notification
+    try {
+      await fetch("https://formspree.io/f/xpwzzpww", {
+        method: "POST",
+        body: JSON.stringify({
+          ...newReview,
+          type: "New Website Review"
+        }),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+    } catch (error) {
+      console.error("Review email error:", error);
+    }
+
     const review = {
       ...newReview,
       id: Date.now(),
@@ -51,6 +69,7 @@ export default function Home() {
     setReviews([review, ...reviews]);
     setIsReviewModalOpen(false);
     setNewReview({ name: "", location: "", rating: 5, comment: "" });
+    alert("Thank you for your review! It has been submitted for approval.");
   };
 
   return (

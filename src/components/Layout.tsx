@@ -187,13 +187,39 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h3 className="text-lg font-semibold mb-6 text-white">Newsletter</h3>
               <p className="text-sm text-emerald-200/70 mb-4">Subscribe to get special offers and travel tips.</p>
-              <form className="flex flex-col gap-2">
+              <form 
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.target as HTMLFormElement;
+                  const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+                  
+                  try {
+                    const response = await fetch("https://formspree.io/f/xpwzzpww", {
+                      method: "POST",
+                      body: JSON.stringify({ email, type: "Newsletter Subscription" }),
+                      headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                      }
+                    });
+                    if (response.ok) {
+                      alert("Thank you for subscribing!");
+                      form.reset();
+                    }
+                  } catch (error) {
+                    console.error("Newsletter error:", error);
+                  }
+                }}
+                className="flex flex-col gap-2"
+              >
                 <input
+                  required
+                  name="email"
                   type="email"
                   placeholder="Your email address"
                   className="bg-emerald-900/50 border border-emerald-800 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400"
                 />
-                <button className="bg-emerald-400 text-emerald-950 font-bold py-2.5 rounded-lg hover:bg-emerald-300 transition-colors">
+                <button type="submit" className="bg-emerald-400 text-emerald-950 font-bold py-2.5 rounded-lg hover:bg-emerald-300 transition-colors">
                   Subscribe
                 </button>
               </form>

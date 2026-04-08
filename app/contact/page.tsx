@@ -10,14 +10,35 @@ export default function Contact() {
   const { t } = useTranslation();
   const [formStatus, setFormStatus] = React.useState<"idle" | "sending" | "sent">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus("sending");
-    // Simulate API call
-    setTimeout(() => {
-      setFormStatus("sent");
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+    
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("https://formspree.io/f/xpwzzpww", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setFormStatus("sent");
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setFormStatus("idle"), 5000);
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setFormStatus("idle");
+      alert("There was an error sending your message. Please try again or contact us via WhatsApp.");
+    }
   };
 
   return (
@@ -148,6 +169,7 @@ export default function Contact() {
                     <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.full_name")}</label>
                     <input
                       required
+                      name="full_name"
                       type="text"
                       placeholder={t("contact.name_placeholder")}
                       className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
@@ -157,6 +179,7 @@ export default function Contact() {
                     <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.email")}</label>
                     <input
                       required
+                      name="email"
                       type="email"
                       placeholder={t("contact.email_placeholder")}
                       className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
@@ -168,6 +191,7 @@ export default function Contact() {
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.phone")}</label>
                     <input
+                      name="phone"
                       type="tel"
                       placeholder="+94 7X XXX XXXX"
                       className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
@@ -175,7 +199,10 @@ export default function Contact() {
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.subject")}</label>
-                    <select className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all appearance-none">
+                    <select 
+                      name="subject"
+                      className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all appearance-none"
+                    >
                       <option>{t("contact.subject_general")}</option>
                       <option>{t("contact.subject_booking")}</option>
                       <option>{t("contact.subject_custom")}</option>
@@ -188,6 +215,7 @@ export default function Contact() {
                   <label className="text-sm font-bold text-gray-700 ml-1">{t("contact.message")}</label>
                   <textarea
                     required
+                    name="message"
                     rows={6}
                     placeholder={t("contact.message_placeholder")}
                     className="w-full bg-emerald-50/50 border border-emerald-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all resize-none"
