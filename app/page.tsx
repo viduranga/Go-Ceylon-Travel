@@ -82,23 +82,23 @@ export default function Home() {
               <Star className="w-4 h-4 text-emerald-400 fill-emerald-400" />
               <span>{t("hero.badge")}</span>
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
               {t("hero.title")}
             </h1>
-            <p className="text-lg md:text-xl text-emerald-50/80 max-w-2xl mx-auto font-light leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-emerald-50/90 max-w-3xl mx-auto font-medium leading-relaxed mb-10">
               {t("hero.subtitle")}
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Link
                 href="/tours"
-                className="group bg-emerald-500 text-emerald-950 px-8 py-4 rounded-full text-lg font-bold hover:bg-emerald-400 transition-all shadow-xl shadow-emerald-500/20 flex items-center gap-2 active:scale-95"
+                className="group bg-emerald-500 text-emerald-950 px-10 py-4 rounded-full text-base md:text-lg font-bold hover:bg-emerald-400 transition-all shadow-xl shadow-emerald-500/20 flex items-center gap-2 active:scale-95 w-full sm:w-auto justify-center"
               >
                 {t("cta.book")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/contact"
-                className="bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all active:scale-95"
+                className="bg-white/10 backdrop-blur-md text-white border border-white/30 px-10 py-4 rounded-full text-base md:text-lg font-bold hover:bg-white/20 transition-all active:scale-95 w-full sm:w-auto justify-center"
               >
                 {t("cta.contact")}
               </Link>
