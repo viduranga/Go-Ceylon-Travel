@@ -36,7 +36,7 @@ jobs:
           # By default, this will sync the entire repository.
           local-dir: ./
           # The remote folder on Bluehost (e.g., public_html/my-app)
-          server-dir: public_html/ # Update this to your specific folder path
+          server-dir: public_html/website_762482e9/
           exclude: |
             **/.git*
             **/.git*/**
