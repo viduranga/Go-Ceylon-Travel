@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { Compass, MapPin, Phone, Mail, Facebook, Instagram, Twitter, Menu, X, MessageCircle } from "lucide-react";
@@ -32,11 +33,14 @@ export default function Layout({ children }: LayoutProps) {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center group">
-            <img 
+            <Image 
               src="https://lh3.googleusercontent.com/d/1Y1eVyMBKPd2qGRXvAWbPK-_Jh7gnIvIu" 
               alt="Go Ceylon Travel Logo" 
+              width={150}
+              height={56}
               className="h-14 w-auto object-contain"
               referrerPolicy="no-referrer"
+              priority
             />
           </Link>
 
@@ -122,9 +126,11 @@ export default function Layout({ children }: LayoutProps) {
             {/* Brand */}
             <div className="space-y-6">
               <Link href="/" className="flex items-center">
-                <img 
+                <Image 
                   src="https://lh3.googleusercontent.com/d/1Y1eVyMBKPd2qGRXvAWbPK-_Jh7gnIvIu" 
                   alt="Go Ceylon Travel Logo" 
+                  width={150}
+                  height={56}
                   className="h-14 w-auto object-contain brightness-0 invert"
                   referrerPolicy="no-referrer"
                 />

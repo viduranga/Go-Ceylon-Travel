@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { ArrowRight, ShieldCheck, Star, Users, MapPin, Compass, CheckCircle2, Quote, MessageSquare, X, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -58,12 +59,14 @@ export default function Home() {
       <section className="relative h-[90vh] flex items-center justify-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg"
             alt="Scenic landscape of Sri Lanka - Best tours in Sri Lanka 2026"
             title="Visit Sri Lanka 2026"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
             referrerPolicy="no-referrer"
+            priority
           />
           <div className="absolute inset-0 bg-emerald-950/40 backdrop-blur-[2px]" />
         </div>
@@ -120,11 +123,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="w-full lg:w-1/2 relative aspect-[16/10] rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img 
+              <Image 
                 src="https://goceylontravel.com/uploads/romantic-honeymoon-tour-sri-lanka.jpeg" 
                 alt="A romantic honeymoon couple enjoying a private sunset tour in Sri Lanka with Go Ceylon Travel." 
                 title="Sri Lanka honeymoon packages, Romantic Sri Lanka tour, Luxury honeymoon Sri Lanka"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-emerald-100 flex items-center gap-4">
@@ -306,11 +310,12 @@ export default function Home() {
                 transition={{ delay: idx * 0.1 }}
                 className="relative h-64 rounded-2xl overflow-hidden shadow-lg group"
               >
-                <img
+                <Image
                   src={img.url}
                   alt={img.alt}
                   title={img.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
@@ -362,10 +367,11 @@ export default function Home() {
                 transition={{ delay: idx * 0.1 }}
                 className="group relative h-[500px] rounded-3xl overflow-hidden shadow-lg"
               >
-                <img
+                <Image
                   src={dest.image}
                   alt={dest.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-transparent to-transparent" />
