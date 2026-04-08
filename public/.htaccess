@@ -15,15 +15,13 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   RewriteEngine On
   RewriteBase /
 
-  # 1. EXCLUDE SEO FILES FROM REACT ROUTING
+  # 1. EXCLUDE SEO FILES
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^(sitemap\.xml|robots\.txt)$ - [L]
 
-  # 2. STANDARD REACT ROUTING
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  # 2. NEXT.JS ROUTING (Let Node.js handle the requests)
+  # If you are using the cPanel Node.js Selector, it usually handles this.
+  # We remove the index.html requirement which causes 403 errors.
 </IfModule>
 
 # Caching
