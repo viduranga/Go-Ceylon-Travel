@@ -1073,15 +1073,26 @@ const resources = {
   }
 };
 
-i18n
-  .use(LanguageDetector)
+const isBrowser = typeof window !== 'undefined';
+
+const i18nInstance = i18n;
+
+if (isBrowser) {
+  i18nInstance.use(LanguageDetector);
+}
+
+i18nInstance
   .use(initReactI18next)
   .init({
     resources,
     fallbackLng: 'en',
+    lng: isBrowser ? undefined : 'en',
     interpolation: {
       escapeValue: false,
     },
+    react: {
+      useSuspense: false,
+    }
   });
 
-export default i18n;
+export default i18nInstance;

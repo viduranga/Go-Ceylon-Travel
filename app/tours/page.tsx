@@ -1,21 +1,22 @@
+"use client";
+
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { toursData, TourPlan } from "@/src/data/tours";
 import { Calendar, MapPin, Clock, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { useNavigate, Link } from "react-router-dom";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { cn } from "@/src/lib/utils";
 
 function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
   const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = React.useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleBookNow = (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigate("/contact");
-    window.scrollTo(0, 0);
+    router.push("/contact");
   };
 
   return (
@@ -141,15 +142,10 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
 
 export default function Tours() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className="bg-white min-h-screen pb-24">
-      <Helmet>
-        <title>Sri Lanka Tour Packages 2026 | Go Ceylon Travel</title>
-        <meta name="description" content="Browse our curated Sri Lanka tour packages. From 3-day quick escapes to 14-day full island discoveries, find the perfect itinerary for your Sri Lankan adventure." />
-        <link rel="canonical" href="https://goceylontravel.com/tours" />
-      </Helmet>
       {/* Header */}
       <section className="bg-emerald-950 py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -173,7 +169,7 @@ export default function Tours() {
               {t("tours.hero_subtitle")}
             </p>
             <div className="pt-4">
-              <Link to="/destinations" className="text-emerald-400 font-bold hover:underline text-sm">
+              <Link href="/destinations" className="text-emerald-400 font-bold hover:underline text-sm">
                 {t("nav.destinations")} &rarr;
               </Link>
             </div>
@@ -217,8 +213,7 @@ export default function Tours() {
             <button 
               type="button"
               onClick={() => {
-                navigate("/contact");
-                window.scrollTo(0, 0);
+                router.push("/contact");
               }}
               className="inline-block bg-emerald-900 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-95 cursor-pointer"
             >

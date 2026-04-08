@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { Compass, MapPin, Phone, Mail, Facebook, Instagram, Twitter, Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/src/lib/utils";
@@ -14,9 +16,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const location = useLocation();
-
-  const canonicalUrl = `https://goceylontravel.com${location.pathname === "/" ? "" : location.pathname}`;
+  const pathname = usePathname();
 
   const navLinks = [
     { name: t("nav.home"), path: "/" },
@@ -28,13 +28,10 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col bg-white font-sans">
-      <Helmet>
-        <link rel="canonical" href={canonicalUrl} />
-      </Helmet>
       {/* Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center group">
+          <Link href="/" className="flex items-center group">
             <img 
               src="https://lh3.googleusercontent.com/d/1Y1eVyMBKPd2qGRXvAWbPK-_Jh7gnIvIu" 
               alt="Go Ceylon Travel Logo" 
@@ -48,10 +45,10 @@ export default function Layout({ children }: LayoutProps) {
             {navLinks.map((link) => (
               <Link
                 key={link.path}
-                to={link.path}
+                href={link.path}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-emerald-600",
-                  location.pathname === link.path ? "text-emerald-600" : "text-gray-600"
+                  pathname === link.path ? "text-emerald-600" : "text-gray-600"
                 )}
               >
                 {link.name}
@@ -59,7 +56,7 @@ export default function Layout({ children }: LayoutProps) {
             ))}
             <LanguageSwitcher />
             <Link
-              to="/tours"
+              href="/tours"
               className="bg-emerald-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-emerald-800 transition-all shadow-lg shadow-emerald-900/20 active:scale-95"
             >
               {t("cta.book")}
@@ -91,7 +88,7 @@ export default function Layout({ children }: LayoutProps) {
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
-                    to={link.path}
+                    href={link.path}
                     onClick={() => setIsMenuOpen(false)}
                     className="block px-3 py-4 text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
                   >
@@ -100,7 +97,7 @@ export default function Layout({ children }: LayoutProps) {
                 ))}
                 <div className="pt-4 px-3">
                   <Link
-                    to="/tours"
+                    href="/tours"
                     onClick={() => setIsMenuOpen(false)}
                     className="block w-full text-center bg-emerald-900 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-emerald-900/20"
                   >
@@ -124,7 +121,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             {/* Brand */}
             <div className="space-y-6">
-              <Link to="/" className="flex items-center">
+              <Link href="/" className="flex items-center">
                 <img 
                   src="https://lh3.googleusercontent.com/d/1Y1eVyMBKPd2qGRXvAWbPK-_Jh7gnIvIu" 
                   alt="Go Ceylon Travel Logo" 
@@ -152,12 +149,12 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h3 className="text-lg font-semibold mb-6 text-white">{t("footer.quick_links")}</h3>
               <ul className="space-y-4 text-sm text-emerald-200/70">
-                <li><Link to="/" className="hover:text-emerald-400 transition-colors">{t("nav.home")}</Link></li>
-                <li><Link to="/tours" className="hover:text-emerald-400 transition-colors">{t("nav.tours")}</Link></li>
-                <li><Link to="/destinations" className="hover:text-emerald-400 transition-colors">{t("nav.destinations")}</Link></li>
-                <li><Link to="/about" className="hover:text-emerald-400 transition-colors">{t("nav.about")}</Link></li>
-                <li><Link to="/contact" className="hover:text-emerald-400 transition-colors">{t("nav.contact")}</Link></li>
-                <li><Link to="/admin" className="hover:text-emerald-400 transition-colors">{t("nav.admin")}</Link></li>
+                <li><Link href="/" className="hover:text-emerald-400 transition-colors">{t("nav.home")}</Link></li>
+                <li><Link href="/tours" className="hover:text-emerald-400 transition-colors">{t("nav.tours")}</Link></li>
+                <li><Link href="/destinations" className="hover:text-emerald-400 transition-colors">{t("nav.destinations")}</Link></li>
+                <li><Link href="/about" className="hover:text-emerald-400 transition-colors">{t("nav.about")}</Link></li>
+                <li><Link href="/contact" className="hover:text-emerald-400 transition-colors">{t("nav.contact")}</Link></li>
+                <li><Link href="/admin" className="hover:text-emerald-400 transition-colors">{t("nav.admin")}</Link></li>
               </ul>
             </div>
 

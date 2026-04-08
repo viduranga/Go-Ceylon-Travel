@@ -1,8 +1,9 @@
+"use client";
+
 import React from "react";
 import { motion } from "motion/react";
-import { Helmet } from "react-helmet-async";
 import { MapPin, ArrowRight, Compass, Camera, Info } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
 const destinations = [
@@ -69,11 +70,6 @@ export default function Destinations() {
 
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>{t("destinations.hero_title")} | Go Ceylon Travel</title>
-        <meta name="description" content={t("destinations.hero_subtitle")} />
-        <link rel="canonical" href="https://goceylontravel.com/destinations" />
-      </Helmet>
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -154,7 +150,7 @@ export default function Destinations() {
 
                 <div className="pt-6 flex flex-wrap gap-4">
                   <Link
-                    to="/tours"
+                    href="/tours"
                     className="bg-emerald-900 text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 flex items-center gap-3 active:scale-95"
                   >
                     {t("destinations.view_tours")} {t(dest.nameKey)}
@@ -180,7 +176,7 @@ export default function Destinations() {
             {t("destinations.custom_desc")}
           </p>
           <Link
-            to="/contact"
+            href="/contact"
             className="inline-block bg-emerald-600 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-500 transition-all shadow-xl shadow-emerald-600/20 active:scale-95"
           >
             {t("destinations.plan_custom")}

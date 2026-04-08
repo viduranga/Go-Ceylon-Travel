@@ -1,9 +1,10 @@
+"use client";
+
 import React from "react";
 import { motion } from "motion/react";
-import { Helmet } from "react-helmet-async";
 import { ShieldCheck, Star, Users, MapPin, Compass, Heart, Award, Camera } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const galleryImages = [
   {
@@ -63,11 +64,6 @@ export default function About() {
 
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>{t("about.hero_title")} | Go Ceylon Travel</title>
-        <meta name="description" content={t("about.hero_subtitle")} />
-        <link rel="canonical" href="https://goceylontravel.com/about" />
-      </Helmet>
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -143,10 +139,10 @@ export default function About() {
                 {t("about.meet_desc2")}
               </p>
               <div className="pt-4 flex gap-4">
-                <Link to="/destinations" className="text-emerald-600 font-bold hover:underline text-sm">
+                <Link href="/destinations" className="text-emerald-600 font-bold hover:underline text-sm">
                   {t("about.explore_destinations")} &rarr;
                 </Link>
-                <Link to="/tours" className="text-emerald-600 font-bold hover:underline text-sm">
+                <Link href="/tours" className="text-emerald-600 font-bold hover:underline text-sm">
                   {t("about.view_tours")} &rarr;
                 </Link>
               </div>
@@ -248,13 +244,13 @@ export default function About() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              to="/contact"
+              href="/contact"
               className="bg-emerald-500 text-emerald-950 px-10 py-4 rounded-full font-bold shadow-xl shadow-emerald-500/20"
             >
               {t("about.cta_contact")}
             </Link>
             <Link
-              to="/tours"
+              href="/tours"
               className="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-full font-bold"
             >
               {t("cta_section.browse")}
