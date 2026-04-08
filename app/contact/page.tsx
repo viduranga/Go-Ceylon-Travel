@@ -22,7 +22,8 @@ export default function Contact() {
         method: "POST",
         body: JSON.stringify({
           ...data,
-          _subject: `New Contact Form Message: ${data.subject || 'General Inquiry'}`
+          _subject: `New Message from ${data.full_name} - ${data.subject || 'General Inquiry'}`,
+          _replyto: data.email
         }),
         headers: {
           'Accept': 'application/json',

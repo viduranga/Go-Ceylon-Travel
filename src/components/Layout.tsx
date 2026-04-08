@@ -199,7 +199,8 @@ export default function Layout({ children }: LayoutProps) {
                       body: JSON.stringify({ 
                         email, 
                         type: "Newsletter Subscription",
-                        _subject: "New Newsletter Subscription"
+                        _subject: `Newsletter Subscription: ${email}`,
+                        _replyto: email
                       }),
                       headers: {
                         'Accept': 'application/json',
