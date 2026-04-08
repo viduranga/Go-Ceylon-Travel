@@ -142,6 +142,14 @@ export default function About() {
               <p className="text-gray-600 text-lg leading-relaxed font-light">
                 {t("about.meet_desc2")}
               </p>
+              <div className="pt-4 flex gap-4">
+                <Link to="/destinations" className="text-emerald-600 font-bold hover:underline text-sm">
+                  {t("about.explore_destinations")} &rarr;
+                </Link>
+                <Link to="/tours" className="text-emerald-600 font-bold hover:underline text-sm">
+                  {t("about.view_tours")} &rarr;
+                </Link>
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-6">

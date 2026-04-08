@@ -230,7 +230,7 @@ export default function Contact() {
         <div className="bg-emerald-50 rounded-[3rem] overflow-hidden h-[400px] relative border border-emerald-100">
           <div className="absolute inset-0 flex items-center justify-center text-emerald-900/40 flex-col gap-4">
             <MapPin className="w-12 h-12" />
-            <p className="font-bold text-lg">Interactive Map Coming Soon</p>
+            <p className="font-bold text-lg">{t("contact.map_placeholder")}</p>
             <p className="text-sm">Panagamuwa, Wanchawala, Galle, Sri lanka.</p>
           </div>
           {/* In a real app, you'd embed a Google Map here */}

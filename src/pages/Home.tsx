@@ -55,8 +55,8 @@ export default function Home() {
     <div className="overflow-hidden">
       <Helmet>
         <title>Go Ceylon Travel | Best Sri Lanka Tours & Private Tour Planner 2026</title>
-        <meta name="description" content="Experience the best Sri Lanka tours with Go Ceylon Travel. We offer private tour planning, luxury transport, and authentic local experiences across the island." />
-        <meta name="keywords" content="Sri Lanka tours, private tour planner Sri Lanka, best travel agency Sri Lanka, Sri Lanka holiday packages 2026" />
+        <meta name="description" content="Experience the heart of Sri Lanka with Go Ceylon Travel. We offer 100% customizable 2026 tour packages with professional private drivers. From Sigiriya’s heights to Ella’s tea hills—plan your perfect island getaway today!" />
+        <meta name="keywords" content="Sri Lanka tours, private tour planner Sri Lanka, best travel agency Sri Lanka, Sri Lanka holiday packages 2026, private driver Sri Lanka" />
         <link rel="canonical" href="https://goceylontravel.com/" />
       </Helmet>
 
@@ -217,6 +217,9 @@ export default function Home() {
             <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("why.title")}</h2>
             <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("why.subtitle")}</p>
             <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
+            <Link to="/about" className="inline-block text-emerald-600 text-sm font-bold hover:underline pt-4">
+              {t("home.learn_more")} &rarr;
+            </Link>
           </div>
 
           <motion.div

@@ -150,20 +150,20 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
+              <h3 className="text-lg font-semibold mb-6 text-white">{t("footer.quick_links")}</h3>
               <ul className="space-y-4 text-sm text-emerald-200/70">
-                <li><Link to="/" className="hover:text-emerald-400 transition-colors">Home</Link></li>
-                <li><Link to="/tours" className="hover:text-emerald-400 transition-colors">Our Tours</Link></li>
-                <li><Link to="/destinations" className="hover:text-emerald-400 transition-colors">Destinations</Link></li>
-                <li><Link to="/about" className="hover:text-emerald-400 transition-colors">About Us</Link></li>
-                <li><Link to="/contact" className="hover:text-emerald-400 transition-colors">Contact</Link></li>
-                <li><Link to="/admin" className="hover:text-emerald-400 transition-colors">Media Manager</Link></li>
+                <li><Link to="/" className="hover:text-emerald-400 transition-colors">{t("nav.home")}</Link></li>
+                <li><Link to="/tours" className="hover:text-emerald-400 transition-colors">{t("nav.tours")}</Link></li>
+                <li><Link to="/destinations" className="hover:text-emerald-400 transition-colors">{t("nav.destinations")}</Link></li>
+                <li><Link to="/about" className="hover:text-emerald-400 transition-colors">{t("nav.about")}</Link></li>
+                <li><Link to="/contact" className="hover:text-emerald-400 transition-colors">{t("nav.contact")}</Link></li>
+                <li><Link to="/admin" className="hover:text-emerald-400 transition-colors">{t("nav.admin")}</Link></li>
               </ul>
             </div>
 
             {/* Contact Info */}
             <div>
-              <h3 className="text-lg font-semibold mb-6 text-white">Contact Us</h3>
+              <h3 className="text-lg font-semibold mb-6 text-white">{t("footer.contact_us")}</h3>
               <ul className="space-y-4 text-sm text-emerald-200/70">
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-emerald-400 shrink-0" />
@@ -200,8 +200,8 @@ export default function Layout({ children }: LayoutProps) {
           <div className="pt-10 border-t border-emerald-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-emerald-200/50">
             <p>© 2026 Go Ceylon Travel. {t("footer.rights")}</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-emerald-400 transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-emerald-400 transition-colors">{t("footer.privacy")}</a>
+              <a href="#" className="hover:text-emerald-400 transition-colors">{t("footer.terms")}</a>
             </div>
           </div>
         </div>

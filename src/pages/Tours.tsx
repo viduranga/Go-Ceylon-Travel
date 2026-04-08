@@ -172,6 +172,11 @@ export default function Tours() {
             <p className="text-emerald-100/60 text-lg max-w-2xl mx-auto font-light">
               {t("tours.hero_subtitle")}
             </p>
+            <div className="pt-4">
+              <Link to="/destinations" className="text-emerald-400 font-bold hover:underline text-sm">
+                {t("nav.destinations")} &rarr;
+              </Link>
+            </div>
             <div className="flex items-center justify-center gap-6 pt-4">
               <div className="flex items-center gap-2 text-emerald-400/80 text-sm">
                 <CheckCircle2 className="w-4 h-4" />
