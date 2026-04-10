@@ -19,6 +19,21 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'picsum.photos',
       },
+      {
+        protocol: 'https',
+        hostname: 'static.tacdn.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.tripadvisor.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'tripadvisor.com',
+        pathname: '/**',
+      },
     ],
   },
 };

@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    // Collection: reviews
+    // Fields:
+    //   - name: string (required, 1-100 chars)
+    //   - location: string (optional, 0-100 chars)
+    //   - rating: number (required, 1-5)
+    //   - comment: string (required, 1-1000 chars)
+    //   - date: string (required)
+    //   - createdAt: timestamp (required)
+    // ===============================================================
+
+    function isValidReview(data) {
+      return data.name is string && data.name.size() > 0 && data.name.size() <= 100 &&
+             data.rating is number && data.rating >= 1 && data.rating <= 5 &&
+             data.comment is string && data.comment.size() > 0 && data.comment.size() <= 1000 &&
+             data.date is string &&
+             data.createdAt is timestamp;
+    }
+
+    match /reviews/{reviewId} {
+      // Allow anyone to read reviews
+      allow read: if true;
+      
+      // Allow anyone to create a review, but validate the data
+      allow create: if isValidReview(request.resource.data);
+      
+      // Deny updates and deletes for now (admin only later if needed)
+      allow update, delete: if false;
+    }
+  }
+}

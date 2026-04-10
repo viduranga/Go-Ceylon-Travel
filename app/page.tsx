@@ -7,6 +7,9 @@ import { useTranslation } from "react-i18next";
 import { ArrowRight, ShieldCheck, Star, Users, MapPin, Compass, CheckCircle2, Quote, MessageSquare, X, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/src/lib/utils";
+import tripAdvisorReviews from "@/src/data/reviews.json";
+import { db } from "@/src/lib/firebase";
+import { collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, Timestamp } from "firebase/firestore";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -25,8 +28,8 @@ const staggerContainer = {
 export default function Home() {
   const { t } = useTranslation();
   const [isReviewModalOpen, setIsReviewModalOpen] = React.useState(false);
-  const [reviews, setReviews] = React.useState<{
-    id: number;
+  const [websiteReviews, setWebsiteReviews] = React.useState<{
+    id: string;
     name: string;
     location: string;
     rating: number;
@@ -41,11 +44,33 @@ export default function Home() {
     comment: ""
   });
 
+  // Fetch website reviews from Firestore
+  React.useEffect(() => {
+    const q = query(collection(db, "reviews"), orderBy("createdAt", "desc"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const reviewsData = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as any;
+      setWebsiteReviews(reviewsData);
+    }, (error) => {
+      console.error("Firestore error:", error);
+    });
+    return () => unsubscribe();
+  }, []);
+
   const handleReviewSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Send email notification
     try {
+      // 1. Save to Firestore for automatic display
+      await addDoc(collection(db, "reviews"), {
+        ...newReview,
+        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        createdAt: serverTimestamp()
+      });
+
+      // 2. Send email notification via FormSubmit.co
       await fetch("https://formsubmit.co/ajax/goceylontravel111@gmail.com", {
         method: "POST",
         body: JSON.stringify({
@@ -58,19 +83,14 @@ export default function Home() {
           'Content-Type': 'application/json'
         }
       });
-    } catch (error) {
-      console.error("Review email error:", error);
-    }
 
-    const review = {
-      ...newReview,
-      id: Date.now(),
-      date: "Just now"
-    };
-    setReviews([review, ...reviews]);
-    setIsReviewModalOpen(false);
-    setNewReview({ name: "", location: "", rating: 5, comment: "" });
-    alert("Thank you for your review! It has been submitted for approval.");
+      setIsReviewModalOpen(false);
+      setNewReview({ name: "", location: "", rating: 5, comment: "" });
+      alert("Thank you for your review! It has been posted successfully.");
+    } catch (error) {
+      console.error("Review submission error:", error);
+      alert("There was an error submitting your review. Please try again.");
+    }
   };
 
   return (
@@ -469,59 +489,154 @@ export default function Home() {
               <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("testimonials.title")}</h2>
               <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("testimonials.subtitle")}</p>
             </div>
-            <button 
-              type="button"
-              onClick={() => {
-                console.log("Opening review modal");
-                setIsReviewModalOpen(true);
-              }}
-              className="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/20 active:scale-95 relative z-10"
-            >
-              <MessageSquare className="w-5 h-5" />
-              {t("testimonials.write")}
-            </button>
+            <div className="flex flex-wrap items-center gap-4">
+              <button 
+                type="button"
+                onClick={() => {
+                  console.log("Opening review modal");
+                  setIsReviewModalOpen(true);
+                }}
+                className="bg-emerald-600 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-lg shadow-emerald-600/20 active:scale-95 relative z-10"
+              >
+                <MessageSquare className="w-5 h-5" />
+                {t("testimonials.write")}
+              </button>
+              <a 
+                href="https://www.tripadvisor.com/Attraction_Review-g297896-d34311016-Reviews-Go_Ceylon_Travel-Galle_Galle_District_Southern_Province.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-[#00af87] border-2 border-[#00af87] px-6 py-3 rounded-full font-bold hover:bg-[#00af87] hover:text-white transition-all flex items-center gap-2 shadow-sm active:scale-95 relative z-10"
+              >
+                <Image 
+                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" 
+                  alt="TripAdvisor" 
+                  width={100} 
+                  height={20} 
+                  className="h-5 w-auto"
+                  referrerPolicy="no-referrer"
+                />
+                <span className="text-sm">View on TripAdvisor</span>
+              </a>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.length > 0 ? (
-              reviews.slice(0, 3).map((review, idx) => (
-                <motion.div
-                  key={review.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="bg-white p-8 rounded-[2rem] shadow-sm border border-emerald-100 relative group hover:shadow-xl transition-all"
-                >
-                  <Quote className="w-10 h-10 text-emerald-100 absolute top-6 right-8 group-hover:text-emerald-200 transition-colors" />
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={cn(
-                          "w-4 h-4", 
-                          i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
-                        )} 
-                      />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 italic mb-6 leading-relaxed">&quot;{review.comment}&quot;</p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-lg">
-                      {review.name.charAt(0)}
+          {/* TripAdvisor Reviews */}
+          <div className="mb-16">
+            <div className="flex items-center gap-2 mb-8">
+              <Image 
+                src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" 
+                alt="TripAdvisor" 
+                width={120} 
+                height={24} 
+                className="h-6 w-auto"
+                referrerPolicy="no-referrer"
+              />
+              <h3 className="text-xl font-bold text-gray-900">Verified TripAdvisor Reviews</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {tripAdvisorReviews.length > 0 ? (
+                tripAdvisorReviews.slice(0, 3).map((review, idx) => (
+                  <motion.div
+                    key={review.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="bg-white p-8 rounded-[2rem] shadow-sm border border-emerald-100 relative group hover:shadow-xl transition-all"
+                  >
+                    <Quote className="w-10 h-10 text-emerald-100 absolute top-6 right-8 group-hover:text-emerald-200 transition-colors" />
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star 
+                            key={i} 
+                            className={cn(
+                              "w-4 h-4", 
+                              i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
+                            )} 
+                          />
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-1.5 bg-[#00af87]/10 px-2 py-1 rounded-md">
+                        <Image 
+                          src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_logo_mono.svg" 
+                          alt="TripAdvisor" 
+                          width={16} 
+                          height={16} 
+                          className="w-4 h-4"
+                          style={{ filter: 'invert(48%) sepia(98%) saturate(2473%) hue-rotate(135deg) brightness(95%) contrast(101%)' }}
+                          referrerPolicy="no-referrer"
+                        />
+                        <span className="text-[10px] font-bold text-[#00af87]">TripAdvisor</span>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900">{review.name}</h4>
-                      <p className="text-xs text-emerald-600/60 font-medium">{review.location} • {review.date}</p>
+                    <p className="text-gray-600 italic mb-6 leading-relaxed">&quot;{review.comment}&quot;</p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-lg">
+                        {review.name.charAt(0)}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900">{review.name}</h4>
+                        <p className="text-xs text-emerald-600/60 font-medium">{review.location} • {review.date}</p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))
-            ) : (
-              <div className="col-span-1 md:col-span-3 text-center py-12">
-                <p className="text-emerald-900/40 font-medium">{t("testimonials.no_reviews")}</p>
-              </div>
-            )}
+                  </motion.div>
+                ))
+              ) : (
+                <div className="col-span-1 md:col-span-3 text-center py-12 bg-white rounded-[2rem] border border-dashed border-emerald-200">
+                  <p className="text-emerald-900/40 font-medium">Fetching latest reviews from TripAdvisor...</p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Website Guest Reviews */}
+          <div>
+            <div className="flex items-center gap-2 mb-8">
+              <Heart className="w-6 h-6 text-emerald-600 fill-emerald-600" />
+              <h3 className="text-xl font-bold text-gray-900">Website Guest Reviews</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {websiteReviews.length > 0 ? (
+                websiteReviews.slice(0, 3).map((review, idx) => (
+                  <motion.div
+                    key={review.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="bg-white p-8 rounded-[2rem] shadow-sm border border-emerald-100 relative group hover:shadow-xl transition-all"
+                  >
+                    <Quote className="w-10 h-10 text-emerald-100 absolute top-6 right-8 group-hover:text-emerald-200 transition-colors" />
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className={cn(
+                            "w-4 h-4", 
+                            i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
+                          )} 
+                        />
+                      ))}
+                    </div>
+                    <p className="text-gray-600 italic mb-6 leading-relaxed">&quot;{review.comment}&quot;</p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-lg">
+                        {review.name.charAt(0)}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900">{review.name}</h4>
+                        <p className="text-xs text-emerald-600/60 font-medium">{review.location} • {review.date}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))
+              ) : (
+                <div className="col-span-1 md:col-span-3 text-center py-12 bg-white rounded-[2rem] border border-dashed border-emerald-200">
+                  <p className="text-emerald-900/40 font-medium">Be the first to leave a review on our website!</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
