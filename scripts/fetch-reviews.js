@@ -1,7 +1,11 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
-const fs = require('fs');
-const path = require('path');
+import axios from 'axios';
+import * as cheerio from 'cheerio';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /**
  * Fetches the latest 5 reviews from TripAdvisor
@@ -64,18 +68,27 @@ async function fetchTripAdvisorReviews() {
 
 // Example: Save to a JSON file (which your Next.js app can import)
 async function run() {
-  const reviews = await fetchTripAdvisorReviews();
-  if (reviews.length > 0) {
-    const outputPath = path.join(__dirname, '../src/data/reviews.json');
-    
-    // Ensure directory exists
-    const dir = path.dirname(outputPath);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
+  try {
+    const reviews = await fetchTripAdvisorReviews();
+    if (reviews.length > 0) {
+      const outputPath = path.join(__dirname, '../src/data/reviews.json');
+      
+      // Ensure directory exists
+      const dir = path.dirname(outputPath);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
 
-    fs.writeFileSync(outputPath, JSON.stringify(reviews, null, 2));
-    console.log('Reviews updated in src/data/reviews.json');
+      fs.writeFileSync(outputPath, JSON.stringify(reviews, null, 2));
+      console.log('Reviews updated in src/data/reviews.json');
+    } else {
+      console.warn('No reviews were fetched. Check the TripAdvisor URL or selectors.');
+      // We don't necessarily want to fail the build if TripAdvisor is down, 
+      // but we should log it clearly.
+    }
+  } catch (err) {
+    console.error('Script failed:', err);
+    process.exit(1);
   }
 }
 

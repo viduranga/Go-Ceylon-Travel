@@ -7,7 +7,19 @@ import { useTranslation } from "react-i18next";
 import { ArrowRight, ShieldCheck, Star, Users, MapPin, Compass, CheckCircle2, Quote, MessageSquare, X, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/src/lib/utils";
-import tripAdvisorReviews from "@/src/data/reviews.json";
+import tripAdvisorReviewsRaw from "@/src/data/reviews.json";
+
+interface Review {
+  id: number | string;
+  name: string;
+  location: string;
+  rating: number;
+  comment: string;
+  date: string;
+  source?: string;
+}
+
+const tripAdvisorReviews = tripAdvisorReviewsRaw as Review[];
 import { db } from "@/src/lib/firebase";
 import { collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, Timestamp } from "firebase/firestore";
 
