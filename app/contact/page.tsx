@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Send, Clock, MessageSquare, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
 import { cn } from "@/src/lib/utils";
@@ -51,11 +52,13 @@ export default function Contact() {
       {/* Header */}
       <section className="bg-emerald-950 py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1580502304784-8985b779ed6c?auto=format&fit=crop&q=80&w=2000"
             alt="Contact Background"
-            className="w-full h-full object-cover grayscale"
+            fill
+            className="object-cover grayscale"
             referrerPolicy="no-referrer"
+            priority
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">

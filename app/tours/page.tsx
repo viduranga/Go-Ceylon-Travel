@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { toursData, TourPlan } from "@/src/data/tours";
 import { Calendar, MapPin, Clock, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
@@ -31,14 +32,15 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
     >
       {/* Image Section */}
       <div className="relative h-72 overflow-hidden shrink-0">
-        <img
+        <Image
           src={tour.image}
           alt={tour.imageAlt || tour.title}
           title={tour.imageTitle}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          fill
+          className="object-cover group-hover:scale-110 transition-transform duration-700"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute top-6 left-6 flex flex-col gap-2">
+        <div className="absolute top-6 left-6 flex flex-col gap-2 z-10">
           <span className={cn(
             "backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border",
             tour.isSpecial 
@@ -149,11 +151,13 @@ export default function Tours() {
       {/* Header */}
       <section className="bg-emerald-950 py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img
+          <Image
             src="https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg"
             alt="Visit Sri Lanka 2026 - Best tours in Sri Lanka"
-            className="w-full h-full object-cover grayscale"
+            fill
+            className="object-cover grayscale"
             referrerPolicy="no-referrer"
+            priority
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -222,12 +226,15 @@ export default function Tours() {
           </div>
           <div className="relative">
             <div className="w-64 h-64 bg-emerald-200 rounded-full absolute -top-10 -right-10 blur-3xl opacity-30 animate-pulse" />
-            <img
-              src="https://lh3.googleusercontent.com/d/16FppfEdw_Hwwkw6SFqX5p17uyrDrKMbS"
-              alt="Custom Travel"
-              className="w-80 h-80 object-cover rounded-[2rem] shadow-2xl relative z-10 rotate-3 hover:rotate-0 transition-transform duration-500"
-              referrerPolicy="no-referrer"
-            />
+            <div className="w-80 h-80 relative z-10 rotate-3 hover:rotate-0 transition-transform duration-500 rounded-[2rem] overflow-hidden shadow-2xl">
+              <Image
+                src="https://lh3.googleusercontent.com/d/16FppfEdw_Hwwkw6SFqX5p17uyrDrKMbS"
+                alt="Custom Travel"
+                fill
+                className="object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </div>
         </div>
       </section>

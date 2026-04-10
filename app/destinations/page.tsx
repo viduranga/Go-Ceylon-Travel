@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { MapPin, ArrowRight, Compass, Camera, Info } from "lucide-react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
@@ -73,11 +74,13 @@ export default function Destinations() {
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg"
             alt="Visit Sri Lanka 2026 - Best tours in Sri Lanka"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
             referrerPolicy="no-referrer"
+            priority
           />
           <div className="absolute inset-0 bg-emerald-950/60 backdrop-blur-[2px]" />
         </div>
@@ -113,13 +116,14 @@ export default function Destinations() {
               <div className="w-full lg:w-1/2 relative group">
                 <div className="absolute -inset-4 bg-emerald-50 rounded-[2.5rem] -z-10 group-hover:bg-emerald-100 transition-colors duration-500" />
                 <div className="h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl relative">
-                  <img
+                  <Image
                     src={dest.image}
                     alt={t(dest.nameKey)}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+                  <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 shadow-lg z-10">
                     <Camera className="w-4 h-4 text-emerald-600" />
                     <span className="text-xs font-bold text-emerald-900 uppercase tracking-widest">{t("destinations.gallery")}</span>
                   </div>

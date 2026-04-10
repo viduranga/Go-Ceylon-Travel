@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { ShieldCheck, Star, Users, MapPin, Compass, Heart, Award, Camera } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
@@ -67,11 +68,13 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg"
             alt="About Go Ceylon Travel"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
             referrerPolicy="no-referrer"
+            priority
           />
           <div className="absolute inset-0 bg-emerald-950/70 backdrop-blur-[2px]" />
         </div>
@@ -101,11 +104,12 @@ export default function About() {
             className="w-full lg:w-1/2 relative"
           >
             <div className="absolute -inset-4 bg-emerald-50 rounded-[3rem] -z-10" />
-            <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl">
-              <img 
+            <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl relative">
+              <Image 
                 src="https://goceylontravel.com/uploads/about/sigiriya-rock-fortress-guided-tour.jpeg" 
                 alt="Ishan - Professional Tour Planner" 
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -187,13 +191,16 @@ export default function About() {
                 transition={{ delay: idx * 0.05 }}
                 className="relative group rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all break-inside-avoid"
               >
-                <img 
-                  src={img.url} 
-                  alt={t(img.altKey)} 
-                  title={t(img.titleKey)}
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
+                <div className="relative aspect-[3/4] transition-transform duration-700 group-hover:scale-105">
+                  <Image 
+                    src={img.url} 
+                    alt={t(img.altKey)} 
+                    title={t(img.titleKey)}
+                    fill
+                    className="object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <div className="text-white">
                     <p className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-1">{t(img.titleKey)}</p>

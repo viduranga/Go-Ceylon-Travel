@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Upload, Image as ImageIcon, CheckCircle2, AlertCircle, Loader2, Trash2 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -118,7 +119,7 @@ export default function Admin() {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {images.map((url, idx) => (
                   <div key={idx} className="group relative aspect-square rounded-2xl overflow-hidden border border-emerald-50">
-                    <img src={url} alt="Uploaded" className="w-full h-full object-cover" />
+                    <Image src={url} alt="Uploaded" fill className="object-cover" />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <button className="p-2 bg-white rounded-full text-red-600 hover:bg-red-50 transition-colors">
                         <Trash2 className="w-5 h-5" />
