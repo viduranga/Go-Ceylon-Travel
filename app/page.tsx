@@ -113,8 +113,8 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             src="https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg"
-            alt="Scenic landscape of Sri Lanka - Best tours in Sri Lanka 2026"
-            title="Visit Sri Lanka 2026"
+            alt="Sri Lanka Tour Package - Best tailor-made Sri Lanka holidays with a private tour guide and driver"
+            title="Visit Sri Lanka 2026 - Customizable Sri Lanka tour packages"
             fill
             className="object-cover"
             referrerPolicy="no-referrer"
@@ -797,6 +797,22 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* Visually Hidden SEO Keywords */}
+      <section className="sr-only" aria-hidden="true">
+        <h2>Sri Lanka Tour Package</h2>
+        <p>We offer the best Sri Lanka Tour Package options for travelers seeking tailor-made Sri Lanka holidays. Our customizable Sri Lanka tour packages are designed to give you the ultimate island experience.</p>
+        <h2>Sri Lanka private tour guide and driver</h2>
+        <p>Explore the island with a professional Sri Lanka private tour guide and driver. We specialize in Sri Lanka family vacation packages and romantic Sri Lanka honeymoon packages.</p>
+        <ul>
+          <li>Sri Lanka Tour Package</li>
+          <li>Tailor-made Sri Lanka holidays</li>
+          <li>Customizable Sri Lanka tour packages</li>
+          <li>Sri Lanka private tour guide and driver</li>
+          <li>Sri Lanka family vacation packages</li>
+          <li>Romantic Sri Lanka Honeymoon Packages</li>
+        </ul>
       </section>
     </div>
   );

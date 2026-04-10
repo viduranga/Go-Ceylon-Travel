@@ -238,6 +238,22 @@ export default function Tours() {
           </div>
         </div>
       </section>
+
+      {/* Visually Hidden SEO Keywords */}
+      <section className="sr-only" aria-hidden="true">
+        <h2>Sri Lanka Tour Package</h2>
+        <p>Explore our variety of Sri Lanka Tour Package options. We specialize in tailor-made Sri Lanka holidays and customizable Sri Lanka tour packages for every type of traveler.</p>
+        <h2>Sri Lanka private tour guide and driver</h2>
+        <p>Our tours include a professional Sri Lanka private tour guide and driver to ensure a seamless experience. We also offer specialized Sri Lanka family vacation packages and romantic Sri Lanka honeymoon packages.</p>
+        <ul>
+          <li>Sri Lanka Tour Package</li>
+          <li>Tailor-made Sri Lanka holidays</li>
+          <li>Customizable Sri Lanka tour packages</li>
+          <li>Sri Lanka private tour guide and driver</li>
+          <li>Sri Lanka family vacation packages</li>
+          <li>Romantic Sri Lanka Honeymoon Packages</li>
+        </ul>
+      </section>
     </div>
   );
 }

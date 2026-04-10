@@ -17,14 +17,26 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Go Ceylon Travel | Customizable Sri Lanka Tours & Private Driver 2026",
-  description: "Experience the heart of Sri Lanka with Go Ceylon Travel. We offer 100% customizable 2026 tour packages with professional private drivers. From Sigiriya’s heights to Ella’s tea hills—plan your perfect island getaway today!",
-  keywords: ["Sri Lanka tours", "private tour planner Sri Lanka", "best travel agency Sri Lanka", "Sri Lanka holiday packages 2026", "private driver Sri Lanka"],
+  title: "Go Ceylon Travel | Sri Lanka Tour Package & Private Driver 2026",
+  description: "Book your Sri Lanka Tour Package with Go Ceylon Travel. We specialize in tailor-made Sri Lanka holidays, customizable Sri Lanka tour packages, and provide a Sri Lanka private tour guide and driver. Perfect for Sri Lanka family vacation packages and romantic Sri Lanka honeymoon packages.",
+  keywords: [
+    "Sri Lanka Tour Package",
+    "Tailor-made Sri Lanka holidays",
+    "Customizable Sri Lanka tour packages",
+    "Sri Lanka private tour guide and driver",
+    "Sri Lanka family vacation packages",
+    "Romantic Sri Lanka Honeymoon Packages",
+    "Sri Lanka tours",
+    "private tour planner Sri Lanka",
+    "best travel agency Sri Lanka",
+    "Sri Lanka holiday packages 2026",
+    "private driver Sri Lanka"
+  ],
   openGraph: {
     type: "website",
     url: "https://goceylontravel.com/",
-    title: "Go Ceylon Travel | Customizable Sri Lanka Tours & Private Driver 2026",
-    description: "Experience the heart of Sri Lanka with Go Ceylon Travel. We offer 100% customizable 2026 tour packages with professional private drivers. From Sigiriya’s heights to Ella’s tea hills—plan your perfect island getaway today!",
+    title: "Go Ceylon Travel | Sri Lanka Tour Package & Private Driver 2026",
+    description: "Book your Sri Lanka Tour Package with Go Ceylon Travel. We specialize in tailor-made Sri Lanka holidays, customizable Sri Lanka tour packages, and provide a Sri Lanka private tour guide and driver. Perfect for Sri Lanka family vacation packages and romantic Sri Lanka honeymoon packages.",
     images: [
       {
         url: "https://goceylontravel.com/uploads/sri-lanka-tourism-header.jpg",
