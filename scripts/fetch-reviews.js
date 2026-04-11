@@ -37,35 +37,39 @@ async function fetchTripAdvisorReviews() {
     console.log(`Found ${reviewCards.length} potential review cards.`);
 
     reviewCards.each((i, el) => {
-      if (reviews.length >= 5) return false;
+      // Remove the 5 review limit to sync everything available on the first page
+      // if (reviews.length >= 5) return false; 
 
-      // Name selectors
+      // Name selectors - expanded
       let name = $(el).find('span > a[class*="ui_header_link"]').first().text().trim();
       if (!name) name = $(el).find('span[class*="biGQs"] a').first().text().trim();
       if (!name) name = $(el).find('div.info_text > div').first().text().trim();
+      if (!name) name = $(el).find('a[class*="WlY7M"]').first().text().trim();
       if (!name) name = 'TripAdvisor Guest';
 
-      // Rating selectors
-      const ratingClass = $(el).find('span[class*="ui_bubble_rating"]').attr('class') || '';
+      // Rating selectors - more robust
+      const ratingClass = $(el).find('span[class*="ui_bubble_rating"], span[class*="bubble_rating"]').attr('class') || '';
       const ratingMatch = ratingClass.match(/bubble_(\d+)/);
       let rating = ratingMatch ? parseInt(ratingMatch[1]) / 10 : 5;
 
-      // Comment selectors
+      // Comment selectors - expanded
       let comment = $(el).find('span[class*="ySveP"]').first().text().trim();
       if (!comment) comment = $(el).find('div[class*="biGQs"] span').first().text().trim();
       if (!comment) comment = $(el).find('p.partial_entry').first().text().trim();
+      if (!comment) comment = $(el).find('div[class*="_reviewText"] span').first().text().trim();
       
-      // Date selectors
+      // Date selectors - expanded
       let date = $(el).find('div[class*="biGQs"]').last().text().trim();
+      if (!date || date.length > 50) date = $(el).find('span[class*="ratingDate"]').text().replace('Reviewed ', '').trim();
       if (!date || date.length > 50) date = 'Recent';
 
-      if (comment && comment.length > 5) {
+      if (comment && comment.length > 3) {
         reviews.push({
           id: `ta-${Date.now()}-${i}`,
           name,
           location: 'TripAdvisor',
           rating,
-          comment,
+          comment: comment.replace(/\n/g, ' '),
           date,
           source: 'TripAdvisor'
         });

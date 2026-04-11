@@ -547,7 +547,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {tripAdvisorReviews.length > 0 ? (
-                tripAdvisorReviews.slice(0, 3).map((review, idx) => (
+                tripAdvisorReviews.map((review, idx) => (
                   <motion.div
                     key={review.id}
                     initial={{ opacity: 0, y: 20 }}
