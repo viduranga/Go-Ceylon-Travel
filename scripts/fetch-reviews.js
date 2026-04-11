@@ -16,37 +16,52 @@ async function fetchTripAdvisorReviews() {
   const url = 'https://www.tripadvisor.com/Attraction_Review-g297896-d34311016-Reviews-Go_Ceylon_Travel-Galle_Galle_District_Southern_Province.html';
   
   try {
-    console.log('Fetching TripAdvisor page...');
+    console.log('Fetching TripAdvisor page:', url);
     const { data } = await axios.get(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
         'Accept-Language': 'en-US,en;q=0.9',
-      }
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+      },
+      timeout: 15000
     });
 
     const $ = cheerio.load(data);
     const reviews = [];
 
-    // TripAdvisor review cards usually have a specific data attribute
-    $('div[data-automation="reviewCard"]').each((i, el) => {
-      if (i >= 5) return false; // Limit to 5
+    // Try multiple selectors for review cards
+    let reviewCards = $('div[data-automation="reviewCard"]');
+    if (reviewCards.length === 0) reviewCards = $('div.review-container');
+    if (reviewCards.length === 0) reviewCards = $('div[data-reviewid]');
+    
+    console.log(`Found ${reviewCards.length} potential review cards.`);
 
-      const name = $(el).find('span > a[class*="ui_header_link"], span[class*="biGQs"] a').first().text().trim() || 'TripAdvisor Guest';
-      
-      // Rating is usually stored in a class name like "bubble_50" (5 stars)
+    reviewCards.each((i, el) => {
+      if (reviews.length >= 5) return false;
+
+      // Name selectors
+      let name = $(el).find('span > a[class*="ui_header_link"]').first().text().trim();
+      if (!name) name = $(el).find('span[class*="biGQs"] a').first().text().trim();
+      if (!name) name = $(el).find('div.info_text > div').first().text().trim();
+      if (!name) name = 'TripAdvisor Guest';
+
+      // Rating selectors
       const ratingClass = $(el).find('span[class*="ui_bubble_rating"]').attr('class') || '';
       const ratingMatch = ratingClass.match(/bubble_(\d+)/);
-      const rating = ratingMatch ? parseInt(ratingMatch[1]) / 10 : 5;
+      let rating = ratingMatch ? parseInt(ratingMatch[1]) / 10 : 5;
 
-      // Review text
-      const comment = $(el).find('span[class*="ySveP"], div[class*="biGQs"] span').first().text().trim();
+      // Comment selectors
+      let comment = $(el).find('span[class*="ySveP"]').first().text().trim();
+      if (!comment) comment = $(el).find('div[class*="biGQs"] span').first().text().trim();
+      if (!comment) comment = $(el).find('p.partial_entry').first().text().trim();
       
-      // Date of stay/review
-      const date = $(el).find('div[class*="biGQs"]').last().text().trim() || 'Recent';
+      // Date selectors
+      let date = $(el).find('div[class*="biGQs"]').last().text().trim();
+      if (!date || date.length > 50) date = 'Recent';
 
-      if (comment) {
+      if (comment && comment.length > 5) {
         reviews.push({
-          id: Date.now() + i,
+          id: `ta-${Date.now()}-${i}`,
           name,
           location: 'TripAdvisor',
           rating,
@@ -57,11 +72,19 @@ async function fetchTripAdvisorReviews() {
       }
     });
 
-    console.log(`Successfully fetched ${reviews.length} reviews.`);
+    if (reviews.length === 0) {
+      console.log('No reviews found with current selectors. Page structure might have changed.');
+      // Optional: Log a snippet of the HTML to help debug
+      // console.log($.html().substring(0, 1000));
+    }
+
     return reviews;
 
   } catch (error) {
     console.error('Error fetching TripAdvisor reviews:', error.message);
+    if (error.response) {
+      console.error('Status:', error.response.status);
+    }
     return [];
   }
 }
@@ -70,21 +93,21 @@ async function fetchTripAdvisorReviews() {
 async function run() {
   try {
     const reviews = await fetchTripAdvisorReviews();
+    const outputPath = path.join(__dirname, '../src/data/reviews.json');
+    
     if (reviews.length > 0) {
-      const outputPath = path.join(__dirname, '../src/data/reviews.json');
-      
-      // Ensure directory exists
       const dir = path.dirname(outputPath);
       if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
       }
 
       fs.writeFileSync(outputPath, JSON.stringify(reviews, null, 2));
-      console.log('Reviews updated in src/data/reviews.json');
+      console.log(`Successfully updated ${reviews.length} reviews in src/data/reviews.json`);
     } else {
-      console.warn('No reviews were fetched. Check the TripAdvisor URL or selectors.');
-      // We don't necessarily want to fail the build if TripAdvisor is down, 
-      // but we should log it clearly.
+      console.warn('No reviews were fetched. Keeping existing reviews if any.');
+      if (!fs.existsSync(outputPath)) {
+        fs.writeFileSync(outputPath, '[]');
+      }
     }
   } catch (err) {
     console.error('Script failed:', err);

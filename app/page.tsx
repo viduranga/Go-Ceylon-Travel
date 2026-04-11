@@ -596,7 +596,15 @@ export default function Home() {
                 ))
               ) : (
                 <div className="col-span-1 md:col-span-3 text-center py-12 bg-white rounded-[2rem] border border-dashed border-emerald-200">
-                  <p className="text-emerald-900/40 font-medium">Fetching latest reviews from TripAdvisor...</p>
+                  <p className="text-emerald-900/40 font-medium mb-4">Fetching latest reviews from TripAdvisor...</p>
+                  <a 
+                    href="https://www.tripadvisor.com/Attraction_Review-g297896-d34311016-Reviews-Go_Ceylon_Travel-Galle_Galle_District_Southern_Province.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-600 font-bold hover:underline"
+                  >
+                    View all reviews on TripAdvisor &rarr;
+                  </a>
                 </div>
               )}
             </div>
