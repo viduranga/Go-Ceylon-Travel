@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
         hostname: 'goceylontravel.com',
       },
       {
+        protocol: 'http',
+        hostname: 'goceylontravel.com',
+      },
+      {
         protocol: 'https',
         hostname: 'picsum.photos',
       },

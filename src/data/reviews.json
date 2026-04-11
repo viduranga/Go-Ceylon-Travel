@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "ta-1056066786",
+    "name": "mvl102",
+    "location": "TripAdvisor Member",
+    "rating": 5,
+    "comment": "We had a wonderful experience. Ishan spent the entire day with us as our driver and made everything incredibly easy and enjoyable. He was always punctual, very friendly, and took care of all the planning, so we could just relax and enjoy the journey. We had great conversations throughout the day, which made the experience even more personal and memorable. We would definitely recommend him to anyone looking for a reliable and kind guide!",
+    "date": "Feb 2026",
+    "source": "TripAdvisor"
+  },
+  {
+    "id": "ta-1056028264",
+    "name": "Инна Х",
+    "location": "Moscow, Russia",
+    "rating": 5,
+    "comment": "We went with friends and small children on a safari and a three-day excursion around the center of the island with Ishan. He also met us at the airport. He is an excellent driver, route planner, and helper with the children. Over time, it was these excursions that remained as memories of Sri Lanka.",
+    "date": "Dec 2025",
+    "source": "TripAdvisor"
+  }
+]

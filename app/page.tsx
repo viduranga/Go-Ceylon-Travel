@@ -520,7 +520,7 @@ export default function Home() {
                 className="bg-white text-[#00af87] border-2 border-[#00af87] px-6 py-3 rounded-full font-bold hover:bg-[#00af87] hover:text-white transition-all flex items-center gap-2 shadow-sm active:scale-95 relative z-10"
               >
                 <Image 
-                  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" 
+                  src="http://goceylontravel.com/uploads/tripadvisor-icon.webp" 
                   alt="TripAdvisor" 
                   width={100} 
                   height={20} 
@@ -536,7 +536,7 @@ export default function Home() {
           <div className="mb-16">
             <div className="flex items-center gap-2 mb-8">
               <Image 
-                src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" 
+                src="http://goceylontravel.com/uploads/tripadvisor-icon.webp" 
                 alt="TripAdvisor" 
                 width={120} 
                 height={24} 
@@ -571,12 +571,11 @@ export default function Home() {
                       </div>
                       <div className="flex items-center gap-1.5 bg-[#00af87]/10 px-2 py-1 rounded-md">
                         <Image 
-                          src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_logo_mono.svg" 
+                          src="http://goceylontravel.com/uploads/tripadvisor-icon.webp" 
                           alt="TripAdvisor" 
                           width={16} 
                           height={16} 
                           className="w-4 h-4"
-                          style={{ filter: 'invert(48%) sepia(98%) saturate(2473%) hue-rotate(135deg) brightness(95%) contrast(101%)' }}
                           referrerPolicy="no-referrer"
                         />
                         <span className="text-[10px] font-bold text-[#00af87]">TripAdvisor</span>
