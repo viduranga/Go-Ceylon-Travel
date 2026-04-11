@@ -558,16 +558,21 @@ export default function Home() {
                   >
                     <Quote className="w-10 h-10 text-emerald-100 absolute top-6 right-8 group-hover:text-emerald-200 transition-colors" />
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star 
-                            key={i} 
-                            className={cn(
-                              "w-4 h-4", 
-                              i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"
-                            )} 
-                          />
-                        ))}
+                      <div className="flex flex-col gap-1">
+                        <div className="flex gap-1">
+                          {[...Array(5)].map((_, i) => (
+                            <div 
+                              key={i} 
+                              className={cn(
+                                "w-3.5 h-3.5 rounded-full", 
+                                i < review.rating ? "bg-[#00af87]" : "bg-gray-200"
+                              )} 
+                            />
+                          ))}
+                        </div>
+                        <span className="text-[11px] font-bold text-gray-900 leading-none">
+                          {review.rating * 2}/10
+                        </span>
                       </div>
                       <div className="flex items-center gap-1.5 bg-[#00af87]/10 px-2 py-1 rounded-md">
                         <Image 
