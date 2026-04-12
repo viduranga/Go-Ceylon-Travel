@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Layout from "@/src/components/Layout";
 import { Providers } from "./providers";
@@ -60,6 +61,18 @@ export default function RootLayout({
         <link rel="preconnect" href="https://goceylontravel.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-817730072"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-817730072');
+          `}
+        </Script>
         <Providers>
           <Layout>{children}</Layout>
         </Providers>
