@@ -1,5 +1,32 @@
 [
   {
+    "id": "ta-new-1",
+    "name": "Sancho E",
+    "location": "TripAdvisor Member",
+    "rating": 5,
+    "comment": "We went to Sri Lanka in August 2025. Shana was our driver. He was the best!! He showed us a lot of beautiful places and was incredibly kind. I totally recommend if you travel to Sri Lanka.",
+    "date": "Apr 2026",
+    "source": "TripAdvisor"
+  },
+  {
+    "id": "ta-new-2",
+    "name": "Александр Ш",
+    "location": "TripAdvisor Member",
+    "rating": 5,
+    "comment": "Vacationing with his wife in January in Unawatuna. They bought a day tour of Sri Lanka and were very satisfied with the guide and driver. We recommend!",
+    "date": "Apr 2026",
+    "source": "TripAdvisor"
+  },
+  {
+    "id": "ta-new-3",
+    "name": "Burak Ü",
+    "location": "TripAdvisor Member",
+    "rating": 5,
+    "comment": "They have great and reliable service , I advice you for your holiday.",
+    "date": "Apr 2026",
+    "source": "TripAdvisor"
+  },
+  {
     "id": "ta-1056066786",
     "name": "mvl102",
     "location": "TripAdvisor Member",
