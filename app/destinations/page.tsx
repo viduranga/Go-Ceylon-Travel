@@ -154,7 +154,7 @@ export default function Destinations() {
 
                 <div className="pt-6 flex flex-wrap gap-4">
                   <Link
-                    href="/tours"
+                    href="/tours/"
                     className="bg-emerald-900 text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 flex items-center gap-3 active:scale-95"
                   >
                     {t("destinations.view_tours")} {t(dest.nameKey)}
@@ -180,7 +180,7 @@ export default function Destinations() {
             {t("destinations.custom_desc")}
           </p>
           <Link
-            href="/contact"
+            href="/contact/"
             className="inline-block bg-emerald-600 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-500 transition-all shadow-xl shadow-emerald-600/20 active:scale-95"
           >
             {t("destinations.plan_custom")}

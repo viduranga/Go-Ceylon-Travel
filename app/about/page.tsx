@@ -143,10 +143,10 @@ export default function About() {
                 {t("about.meet_desc2")}
               </p>
               <div className="pt-4 flex gap-4">
-                <Link href="/destinations" className="text-emerald-600 font-bold hover:underline text-sm">
+                <Link href="/destinations/" className="text-emerald-600 font-bold hover:underline text-sm">
                   {t("about.explore_destinations")} &rarr;
                 </Link>
-                <Link href="/tours" className="text-emerald-600 font-bold hover:underline text-sm">
+                <Link href="/tours/" className="text-emerald-600 font-bold hover:underline text-sm">
                   {t("about.view_tours")} &rarr;
                 </Link>
               </div>
@@ -251,13 +251,13 @@ export default function About() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="/contact"
+              href="/contact/"
               className="bg-emerald-500 text-emerald-950 px-10 py-4 rounded-full font-bold shadow-xl shadow-emerald-500/20"
             >
               {t("about.cta_contact")}
             </Link>
             <Link
-              href="/tours"
+              href="/tours/"
               className="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-4 rounded-full font-bold"
             >
               {t("cta_section.browse")}

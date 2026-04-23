@@ -142,14 +142,14 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
               <Link
-                href="/tours"
+                href="/tours/"
                 className="group bg-emerald-500 text-emerald-950 px-10 py-4 rounded-full text-base md:text-lg font-bold hover:bg-emerald-400 transition-all shadow-xl shadow-emerald-500/20 flex items-center gap-2 active:scale-95 w-full sm:w-auto justify-center"
               >
                 {t("cta.book")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="bg-white/10 backdrop-blur-md text-white border border-white/30 px-10 py-4 rounded-full text-base md:text-lg font-bold hover:bg-white/20 transition-all active:scale-95 w-full sm:w-auto justify-center"
               >
                 {t("cta.contact")}
@@ -249,7 +249,7 @@ export default function Home() {
               </div>
 
               <Link
-                href="/tours"
+                href="/tours/"
                 className="inline-flex items-center gap-2 bg-emerald-900 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-95"
               >
                 {t("honeymoon.cta")}
@@ -267,7 +267,7 @@ export default function Home() {
             <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("why.title")}</h2>
             <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("why.subtitle")}</p>
             <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
-            <Link href="/about" className="inline-block text-emerald-600 text-sm font-bold hover:underline pt-4">
+            <Link href="/about/" className="inline-block text-emerald-600 text-sm font-bold hover:underline pt-4">
               {t("home.learn_more")} &rarr;
             </Link>
           </div>
@@ -388,7 +388,7 @@ export default function Home() {
               <h2 className="text-emerald-900 font-bold tracking-wider uppercase text-sm">{t("destinations.title")}</h2>
               <p className="text-3xl md:text-4xl font-bold text-gray-900">{t("destinations.subtitle")}</p>
             </div>
-            <Link href="/tours" className="text-emerald-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
+            <Link href="/tours/" className="text-emerald-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
               {t("destinations.view_all")} <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -437,7 +437,7 @@ export default function Home() {
                     {dest.desc}
                   </p>
                   <Link
-                    href="/tours"
+                    href="/tours/"
                     className="inline-flex items-center gap-2 text-sm font-bold bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-emerald-900 transition-all"
                   >
                     {t("home.destinations_explore")}
@@ -484,7 +484,7 @@ export default function Home() {
                 )}
                 <h3 className="text-xl font-bold text-emerald-900 mb-3 line-clamp-1">{pkg.title}</h3>
                 <p className="text-gray-600 text-sm mb-6 line-clamp-3">{pkg.desc}</p>
-                <Link href="/tours" className="text-emerald-600 font-bold text-sm flex items-center gap-2">
+                <Link href="/tours/" className="text-emerald-600 font-bold text-sm flex items-center gap-2">
                   {t("home.packages_details")} <ArrowRight className="w-4 h-4" />
                 </Link>
               </motion.div>
@@ -781,13 +781,13 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                href="/tours"
+                href="/tours/"
                 className="bg-emerald-400 text-emerald-950 px-10 py-4 rounded-full text-lg font-bold hover:bg-emerald-300 transition-all shadow-xl shadow-emerald-400/20 active:scale-95"
               >
                 {t("cta_section.browse")}
               </Link>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="bg-transparent border-2 border-emerald-400/30 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-emerald-400/10 transition-all active:scale-95"
               >
                 {t("cta_section.support")}

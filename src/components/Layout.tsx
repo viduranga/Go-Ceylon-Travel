@@ -21,10 +21,10 @@ export default function Layout({ children }: LayoutProps) {
 
   const navLinks = [
     { name: t("nav.home"), path: "/" },
-    { name: t("nav.tours"), path: "/tours" },
-    { name: t("nav.destinations"), path: "/destinations" },
-    { name: t("nav.about"), path: "/about" },
-    { name: t("nav.contact"), path: "/contact" },
+    { name: t("nav.tours"), path: "/tours/" },
+    { name: t("nav.destinations"), path: "/destinations/" },
+    { name: t("nav.about"), path: "/about/" },
+    { name: t("nav.contact"), path: "/contact/" },
   ];
 
   return (
@@ -60,7 +60,7 @@ export default function Layout({ children }: LayoutProps) {
             ))}
             <LanguageSwitcher />
             <Link
-              href="/tours"
+              href="/tours/"
               className="bg-emerald-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-emerald-800 transition-all shadow-lg shadow-emerald-900/20 active:scale-95"
             >
               {t("cta.book")}
@@ -101,7 +101,7 @@ export default function Layout({ children }: LayoutProps) {
                 ))}
                 <div className="pt-4 px-3">
                   <Link
-                    href="/tours"
+                    href="/tours/"
                     onClick={() => setIsMenuOpen(false)}
                     className="block w-full text-center bg-emerald-900 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-emerald-900/20"
                   >
@@ -156,11 +156,11 @@ export default function Layout({ children }: LayoutProps) {
               <h3 className="text-lg font-semibold mb-6 text-white">{t("footer.quick_links")}</h3>
               <ul className="space-y-4 text-sm text-emerald-200/70">
                 <li><Link href="/" className="hover:text-emerald-400 transition-colors">{t("nav.home")}</Link></li>
-                <li><Link href="/tours" className="hover:text-emerald-400 transition-colors">{t("nav.tours")}</Link></li>
-                <li><Link href="/destinations" className="hover:text-emerald-400 transition-colors">{t("nav.destinations")}</Link></li>
-                <li><Link href="/about" className="hover:text-emerald-400 transition-colors">{t("nav.about")}</Link></li>
-                <li><Link href="/contact" className="hover:text-emerald-400 transition-colors">{t("nav.contact")}</Link></li>
-                <li><Link href="/admin" className="hover:text-emerald-400 transition-colors">{t("nav.admin")}</Link></li>
+                <li><Link href="/tours/" className="hover:text-emerald-400 transition-colors">{t("nav.tours")}</Link></li>
+                <li><Link href="/destinations/" className="hover:text-emerald-400 transition-colors">{t("nav.destinations")}</Link></li>
+                <li><Link href="/about/" className="hover:text-emerald-400 transition-colors">{t("nav.about")}</Link></li>
+                <li><Link href="/contact/" className="hover:text-emerald-400 transition-colors">{t("nav.contact")}</Link></li>
+                <li><Link href="/admin/" className="hover:text-emerald-400 transition-colors">{t("nav.admin")}</Link></li>
               </ul>
             </div>
 

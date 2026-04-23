@@ -17,7 +17,7 @@ function TourCard({ tour }: { tour: TourPlan; key?: string | number }) {
 
   const handleBookNow = (e: React.MouseEvent) => {
     e.stopPropagation();
-    router.push("/contact");
+    router.push("/contact/");
   };
 
   return (
@@ -173,7 +173,7 @@ export default function Tours() {
               {t("tours.hero_subtitle")}
             </p>
             <div className="pt-4">
-              <Link href="/destinations" className="text-emerald-400 font-bold hover:underline text-sm">
+              <Link href="/destinations/" className="text-emerald-400 font-bold hover:underline text-sm">
                 {t("nav.destinations")} &rarr;
               </Link>
             </div>
@@ -217,7 +217,7 @@ export default function Tours() {
             <button 
               type="button"
               onClick={() => {
-                router.push("/contact");
+                router.push("/contact/");
               }}
               className="inline-block bg-emerald-900 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-800 transition-all shadow-xl shadow-emerald-900/20 active:scale-95 cursor-pointer"
             >
