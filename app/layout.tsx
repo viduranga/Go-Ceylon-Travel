@@ -45,9 +45,6 @@ export const metadata: Metadata = {
     ],
   },
   metadataBase: new URL("https://goceylontravel.com"),
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: "https://goceylontravel.com/uploads/Go-Ceylon-Logo.png",
   },
